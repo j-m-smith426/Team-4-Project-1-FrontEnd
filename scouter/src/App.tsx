@@ -1,12 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import NavBar from './Componets/NavBar/NavBar';
+import PageGrid from './Componets/Layout/PageGrid';
+
 
 function App() {
   return (
     <div>
-      <NavBar />
+      <PageGrid />
     </div>
   );
 }
