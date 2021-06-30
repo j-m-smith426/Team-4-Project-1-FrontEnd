@@ -1,0 +1,11 @@
+.color div:hover{
+    background-color: burlywood;
+}
+
+#mid {
+    text-align: center;
+}
+
+#right {
+    text-align: right;
+}
