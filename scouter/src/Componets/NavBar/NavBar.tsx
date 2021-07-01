@@ -3,32 +3,41 @@ import { Button, Col, Form, Input, Nav, Navbar, NavItem, NavLink,  } from "react
 import { User } from "../../Entities/User";
 import LogIn from "./LogIn/LogIn";
 import SignUp from "./SignUp/SignUp";
+import { useSelector } from "react-redux";
 import "./NavBar.css"
+import { IAppState } from "../../Redux/State";
 
-const newUser:User ={
-    Name:"",
-    Password:""
-}
+
 
  const NavBar:React.FC<any> = (props) => {
-    const [validUser, setValidUser] = useState(sessionStorage.getItem('username') ? true:false);
+  const currentUser = useSelector((state:IAppState) =>{
+      return state.ILogin.username
+  })  
  
 return(
     
     <div >
         <Navbar className="topBar" light expand="md">
+        {currentUser === "Guest" ?
         <Nav className="ms-auto" navbar>
         <NavItem>
-           {validUser ?
-           <NavLink >{sessionStorage.getItem("username")}</NavLink>:
-            <LogIn User={newUser} isValid={setValidUser}/>
-}
+            <LogIn User={{Name:'',Password:''}} />
         </NavItem>
         {/* To be extracted out */}
                     <Col className=" my-auto" id="signup">
                         <SignUp/>
                     </Col>
+        </Nav>:
+        <Nav className="ms-auto" navbar>
+        <NavItem>          
+           <NavLink href="/user">{currentUser}</NavLink>          
+        </NavItem>
+        {/* To be extracted out */}
+                    <Col className=" my-auto" id="signup">
+                        Sign Out
+                    </Col>
         </Nav>
+ }
                 
  
             
@@ -36,10 +45,10 @@ return(
         <Navbar color="light" light expand="md">
             <Nav className="mr-auto" navbar>
             <NavItem>
-                <NavLink to='/' >Home</NavLink>
+                <NavLink href='/' >Home</NavLink>
                 </NavItem>
                 <NavItem>
-                <NavLink to='/' >Anime</NavLink>
+                <NavLink href='/anime' >Anime</NavLink>
                 </NavItem>
             </Nav>
             <Nav className="ms-auto" navbar>
