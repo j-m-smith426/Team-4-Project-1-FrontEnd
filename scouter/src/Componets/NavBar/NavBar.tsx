@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Button, Form, Input, Nav, Navbar, NavItem, NavLink,  } from "reactstrap";
+import { Button, Col, Form, Input, Nav, Navbar, NavItem, NavLink,  } from "reactstrap";
 import { User } from "../../Entities/User";
 import LogIn from "./LogIn/LogIn";
+import SignUp from "./SignUp/SignUp";
 import "./NavBar.css"
 
 const newUser:User ={
@@ -24,9 +25,9 @@ return(
 }
         </NavItem>
         {/* To be extracted out */}
-        <NavItem>
-        <NavLink to='/' >Sign Up</NavLink>
-        </NavItem>
+                    <Col className=" my-auto" id="signup">
+                        <SignUp/>
+                    </Col>
         </Nav>
                 
  

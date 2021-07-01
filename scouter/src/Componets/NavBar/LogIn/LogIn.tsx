@@ -3,6 +3,8 @@ import { Col, Form, Input, NavLink, Row } from "reactstrap";
 import { CognitoUser } from "@aws-amplify/auth";
 import { User } from "../../../Entities/User";
 import {Auth} from 'aws-amplify'
+import './Login.css'
+import SignUp from "../SignUp/SignUp";
 
 
 interface Iprops{
@@ -22,15 +24,15 @@ const LogIn:React.FC<Iprops> = (props:Iprops) => {
     const submit = async () => {
        
         try {
-            let u: CognitoUser= await Auth.signIn(user.Name, user.Password);
+            let cogUser: CognitoUser= await Auth.signIn(user.Name, user.Password);
            
-           console.log(u);
-           if(u){
-           sessionStorage.setItem("username", u.getUsername());
+           console.log(cogUser);
+           if(cogUser){
+           sessionStorage.setItem("username", cogUser.getUsername());
             props.isValid(true);
            }
             
-        console.log(u.getUsername());
+        console.log(cogUser.getUsername());
        } catch (error) {
            console.log('error signing in', error);
        }
@@ -43,14 +45,16 @@ const LogIn:React.FC<Iprops> = (props:Iprops) => {
             <Form inline>
                 <Row>
                     <Col>
-                <Input type="text" placeholder="UserName" name="Name" onChange={handler}/>
-                </Col>
-                <Col>
-                <Input type="password" placeholder="Password" name="Password" onChange={handler}/>
-                </Col>
-                <Col className="col-2">
-                <NavLink onClick={submit} to='#'>log in</NavLink>
-                </Col>
+                        <Input type="text" placeholder="UserName" name="Name" onChange={handler}/>
+                    </Col>
+                    <Col>
+                        <Input type="password" placeholder="Password" name="Password" onChange={handler}/>
+                    </Col>
+                    <Col className="col-2 my-auto" id="login">
+                        <NavLink onClick={submit} to='#'>log in</NavLink>
+                    </Col>
+                    
+                    
                 </Row>
             </Form>
     )
