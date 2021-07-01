@@ -1,21 +1,22 @@
-import React, { ChangeEvent, FormEvent, useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { Col, Form, Input, NavLink, Row } from "reactstrap";
 import { CognitoUser } from "@aws-amplify/auth";
 import { User } from "../../../Entities/User";
+import { useDispatch } from "react-redux";
 import {Auth} from 'aws-amplify'
 import './Login.css'
-import SignUp from "../SignUp/SignUp";
+import { LoginActions } from "../../../Redux/Actions";
 
 
 interface Iprops{
-    User: User
-    isValid: (state:boolean) => void;
+   User:User
+
 }
 
 const LogIn:React.FC<Iprops> = (props:Iprops) => {
 
     const [user, setUser]= useState(props.User)
-    
+    const dispatch = useDispatch();
     
     const handler = (input:ChangeEvent<HTMLInputElement>) =>{
         setUser({...user,[input.target.name]: input.target.value })
@@ -28,8 +29,13 @@ const LogIn:React.FC<Iprops> = (props:Iprops) => {
            
            console.log(cogUser);
            if(cogUser){
-           sessionStorage.setItem("username", cogUser.getUsername());
-            props.isValid(true);
+           dispatch({
+               type:LoginActions.LOGIN,
+               payload:{
+                  name: cogUser.getUsername 
+               }
+           })
+           
            }
             
         console.log(cogUser.getUsername());
@@ -60,3 +66,5 @@ const LogIn:React.FC<Iprops> = (props:Iprops) => {
     )
 }
 export default LogIn;
+
+
