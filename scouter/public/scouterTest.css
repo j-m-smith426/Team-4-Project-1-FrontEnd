@@ -1,0 +1,31 @@
+div #splash{
+    display:inline-block
+   
+}
+nav li {
+    display:inline;
+    background-color: orangered;
+   
+
+}
+li > a {
+    color:blanchedalmond;
+    padding:10px;
+    text-decoration:none;
+}
+a:visited {
+    color:gold
+}
+#nav > input{
+    background-color: rgb(247, 251, 250);
+
+}header{
+    background-color:#333333;
+}
+
+input#search {
+    align-self:auto;
+    display: inline;
+    background-color: orangered;
+    color:blanchedalmond
+}
