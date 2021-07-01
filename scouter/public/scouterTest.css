@@ -29,3 +29,15 @@ input#search {
     background-color: orangered;
     color:blanchedalmond
 }
+.navButton{
+    background-color: orangered;
+    
+    align-self: right;
+}
+
+#uLog{
+    float: right;
+}
+#uSign{
+    float: right;
+}

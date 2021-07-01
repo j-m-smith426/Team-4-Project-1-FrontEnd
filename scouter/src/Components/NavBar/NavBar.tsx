@@ -1,20 +1,23 @@
 import React from "react";
-import { Button, Form, Input, Nav, Navbar, NavbarText, NavLink,  } from "reactstrap";
+import { Button, Form, Input, Nav, Navbar, NavbarText, NavItem, NavLink,  } from "reactstrap";
 import "./NavBar.css"
-
+import logo from '../../images/logo.png';
  const NavBar:React.FC<any> = (props) => {
-
+    
 return(
     <div >
         <Navbar className="topBar" light expand="md">
             <Nav className="ms-auto" navbar>
+            <img id="logo" src={logo} alt="logo"/>
                 <Form className="d-flex">
-                    <Input type="text" placeholder="UserName" />
-                    <Input type="text" placeholder="Password" />
-                    <NavLink to='/' >Login  </NavLink>
+                    <Input className="uInfo" type="text" placeholder="UserName" /><p></p>
+                    <Input className="uInfo" type="text" placeholder="Password" /><p></p>
+                    <p></p><Input className="login" type="button" value="Login"/>
+                    <Input className="signup" type="button" value="Sign Up"/>
+                    
                 </Form>
                 {/* To be extracted out */}
-                <NavLink to='/' >Sign Up</NavLink>
+                
             </Nav>
         </Navbar>
         <Navbar color="light" light expand="md">
