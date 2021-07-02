@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Button, Col, Form, Input, Nav, Navbar, NavItem, NavLink,  } from "reactstrap";
+import { Button, Col, Form, Input, Nav, Navbar, NavItem, NavLink, NavbarBrand } from "reactstrap";
 import { User } from "../../Entities/User";
 import LogIn from "./LogIn/LogIn";
 import SignUp from "./SignUp/SignUp";
 import "./NavBar.css"
+
 
 const newUser:User ={
     Name:"",
@@ -16,8 +17,21 @@ const newUser:User ={
 return(
     
     <div >
+        
+
         <Navbar className="topBar" light expand="md">
+        <NavbarBrand href="#home" >
+              <img 
+                alt=""
+                src="./logo.png"
+                width="300px" 
+                height="150px" 
+                className="d-inline-block align-top"/>{' '}
+            
+          </NavbarBrand>
         <Nav className="ms-auto" navbar>
+          
+             
         <NavItem>
            {validUser ?
            <NavLink >{sessionStorage.getItem("username")}</NavLink>:
@@ -33,7 +47,7 @@ return(
  
             
         </Navbar>
-        <Navbar color="light" light expand="md">
+        <Navbar  color="light" light expand="md">
             <Nav className="mr-auto" navbar>
             <NavItem>
                 <NavLink to='/' >Home</NavLink>
@@ -42,11 +56,11 @@ return(
                 <NavLink to='/' >Anime</NavLink>
                 </NavItem>
             </Nav>
-            <Nav className="ms-auto" navbar>
+            <Nav id="navSearchBar" className="ms-auto" navbar>
             <NavItem>
-                <Form className="d-flex">
+                <Form id="navSearch" className="d-flex">
                 <Input type="text" placeholder="Search" className="mr-sm-2" />
-                <Button variant="outline-info">Search</Button>
+                <Button id="search" variant="outline-info">Search</Button>
                 </Form>
                 </NavItem>
                 

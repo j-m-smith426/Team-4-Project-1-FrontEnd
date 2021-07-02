@@ -2,7 +2,7 @@ import React from "react";
 import { Col, Container, Row } from "reactstrap";
 import NavBar from "../NavBar/NavBar";
 import './PageGrid.css'
-
+import Carousel from "../Carousel/Carousel";
 const PageGrid:React.FC = (props) => {
 
     return(
@@ -15,7 +15,7 @@ const PageGrid:React.FC = (props) => {
                     Left
                 </Col>
                 <Col className="col-6" id="mid">
-                    Mid
+                  
                 </Col>
                 <Col  id="right">
                     Right
