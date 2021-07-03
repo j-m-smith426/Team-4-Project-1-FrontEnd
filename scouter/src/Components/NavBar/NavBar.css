@@ -95,11 +95,12 @@ nav {
 .px-4 {
     color:blanchedalmond;
 }
-.navbar-brand{float: left;
-
+.navbar-brand{
+    display: grid;
+    place-items: center;
     background-color: #333333;
     background-image: url(./logo.png);
-    background-size:310px;
+    background: size 300px;
     background-repeat: no-repeat;
    
     
@@ -147,7 +148,7 @@ ul{
 #navSearchBar{
   background-color: #333333;
 }
-navbar navbar-expand-md navbar-light bg-light{
+.navbar .navbar-expand-md .navbar-light .bg-light{
   background-color: #333333;
 
 }

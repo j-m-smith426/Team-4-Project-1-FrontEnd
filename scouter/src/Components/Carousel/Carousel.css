@@ -40,3 +40,13 @@
     background-position: center;
     background-size: cover;
 }
+.mycarouselInner .center h1{
+    color:blanchedalmond;
+    font-size: xx-large;
+}
+.mycarouselInner .center p{
+    color:blanchedalmond;
+    font-size: large;
+}
+
+

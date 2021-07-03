@@ -15,7 +15,7 @@ const PageGrid:React.FC = (props) => {
                     Left
                 </Col>
                 <Col className="col-6" id="mid">
-                  
+                <Carousel/>
                 </Col>
                 <Col  id="right">
                     Right
