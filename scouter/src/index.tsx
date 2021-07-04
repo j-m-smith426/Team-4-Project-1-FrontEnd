@@ -6,19 +6,22 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Amplify from 'aws-amplify';
 import {currentConfig} from './amplifyConfig'
-Amplify.configure(currentConfig);
 import { createStore, Store } from 'redux';
-import {logINReducer as reducers} from './Redux/Reducers'
+import {Reducer} from './Redux/Reducers'
 import {IAppState} from './Redux/State'
 import {IAppActions} from './Redux/Actions'
+import {Provider} from 'react-redux'
 
+
+Amplify.configure(currentConfig);
 const w:any = window;
-const store: Store<IAppState,IAppActions> = createStore(reducers, w.__REDUX_DEVTOOLS_EXTENSION__ && w.__REDUX_DEVTOOLS_EXTENSION__());
-
+export const store: Store<IAppState,IAppActions> = createStore(Reducer, w.__REDUX_DEVTOOLS_EXTENSION__ && w.__REDUX_DEVTOOLS_EXTENSION__());
+export type RootState = ReturnType<typeof store.getState>;
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>
+  ,
   document.getElementById('root')
 );
 

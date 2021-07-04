@@ -32,7 +32,7 @@ const LogIn:React.FC<Iprops> = (props:Iprops) => {
            dispatch({
                type:LoginActions.LOGIN,
                payload:{
-                  name: cogUser.getUsername 
+                  name: cogUser.getUsername() 
                }
            })
            
@@ -57,7 +57,7 @@ const LogIn:React.FC<Iprops> = (props:Iprops) => {
                         <Input type="password" placeholder="Password" name="Password" onChange={handler}/>
                     </Col>
                     <Col className="col-2 my-auto" id="login">
-                        <NavLink onClick={submit} to='#'>log in</NavLink>
+                        <NavLink onClick={submit}>log in</NavLink>
                     </Col>
                     
                     
