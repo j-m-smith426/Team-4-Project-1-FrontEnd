@@ -1,8 +1,9 @@
 import React from "react";
-
+import { Row } from "reactstrap";
+import './Anime.css';
 const AnimePageLeft:React.FC = (props) => {
     return(
-        <p>Anime Left</p>
+        <Row id='lRow'>Anime Left</Row>
     )
 }
 
