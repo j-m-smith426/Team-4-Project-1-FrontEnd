@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { isValidElement, useState } from "react";
 import { Button, Col, Form, Input, Nav, Navbar, NavItem, NavLink, NavbarBrand } from "reactstrap";
 import { User } from "../../Entities/User";
 import LogIn from "./LogIn/LogIn";
@@ -8,7 +8,9 @@ import "./NavBar.css"
 
 const newUser:User ={
     Name:"",
-    Password:""
+    Password:"",
+      
+
 }
 
  const NavBar:React.FC<any> = (props) => {
@@ -31,14 +33,17 @@ return(
           </NavbarBrand>
         <Nav className="ms-auto" navbar>
           
-             
+        
         <NavItem>
+            
            {validUser ?
            <NavLink >{sessionStorage.getItem("username")}</NavLink>:
-            <LogIn User={newUser} isValid={setValidUser}/>
+            <LogIn User={newUser} //isValid={setValidUser}
+            />
 }
         </NavItem>
-        {/* To be extracted out */}
+      
+       { /*To be extracted out */}
                     <Col className=" my-auto" id="signup">
                         <SignUp/>
                     </Col>
