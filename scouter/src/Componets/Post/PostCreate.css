@@ -1,0 +1,13 @@
+div button{
+    float: right;
+   text-align: right;
+}
+
+.card{
+    margin: 5px;
+    
+}
+.col textarea{
+    margin-top: 15px;
+    margin-bottom: 5px;
+}

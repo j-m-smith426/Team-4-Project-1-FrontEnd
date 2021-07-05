@@ -1,17 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button, Col, Form, Input, Nav, Navbar, NavItem, NavLink,  } from "reactstrap";
-import { User } from "../../Entities/User";
 import LogIn from "./LogIn/LogIn";
 import SignUp from "./SignUp/SignUp";
 import { useSelector } from "react-redux";
 import "./NavBar.css"
 import { IAppState } from "../../Redux/State";
-
+import { RootState } from "../..";
 
 
  const NavBar:React.FC<any> = (props) => {
   const currentUser = useSelector((state:IAppState) =>{
-      return state.ILogin.username
+     return state.ILogin.username
   })  
  
 return(
