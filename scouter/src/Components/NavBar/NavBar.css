@@ -1,0 +1,157 @@
+#signup {
+    margin:10px;
+    padding: auto;
+    content: normal;
+    float: right;
+    background-color: orangered;
+    color:blanchedalmond;
+    font-size: large;
+    font-family:"Snap ITC", "Sans Serif";
+}
+.mr-auto {
+    background-color: #333333;
+}
+
+
+.topBar {
+    background-color:#333333;  
+    
+    padding: 10px; 
+    display: flex;
+    align-items: center;
+    justify-content:right;
+}
+
+a.nav-link{
+   
+    
+    background-color: orangered;
+    color:blanchedalmond;
+    font-size: large;
+    font-family:"Snap ITC", "Sans Serif";
+}
+
+.col-2{
+    margin:auto;
+    background-color: orangered;
+    color:blanchedalmond;
+    font-size: large;
+    font-family:"Snap ITC", "Sans Serif";
+}
+
+.navMenu{
+    margin:10px;
+    float: right;
+    background-color: orangered;
+   
+    font-size: large;
+    font-family:"Snap ITC", "Sans Serif";
+}
+
+.form-group{
+
+    background-color: orangered;
+    color:blanchedalmond;
+    font-size: large;
+    font-family:"Snap ITC", "Sans Serif";
+}
+.topBar {
+    background-image: url(../../images/banner.png);
+    background-size: 1400px;
+}.form-inline{
+    background-color: #333333;
+}
+#mid{
+    background-color: #333333;
+    color: blanchedalmond;
+}#left{
+    background-color: #333333;
+    color: blanchedalmond;
+}
+#right{
+    background-color: #333333;
+    color: blanchedalmond;
+}
+
+.btn-secondary{
+    background-color: orangered;
+    color:blanchedalmond;
+    font-size: large;
+    font-family:"Snap ITC", "Sans Serif";
+}
+nav {
+    background-color: #333333;
+}
+.mr-sm-2{
+    background-color: orangered;
+    color:blanchedalmond;
+    font-size: large;
+    font-family:"Snap ITC", "Sans Serif";
+}
+.dropdown-menu {
+    background-color: #333333;
+    color:blanchedalmond;
+} 
+.px-4 {
+    color:blanchedalmond;
+}
+.navbar-brand{
+    display: grid;
+    place-items: center;
+    background-color: #333333;
+    background-image: url(./logo.png);
+    background: size 300px;
+    background-repeat: no-repeat;
+   
+    
+}.ms-auto{
+    background-color: #333333;
+}
+.navbar navbar-expand-md navbar-light bg-light{
+    background-color: #333333;
+}
+#search{
+    margin: auto;
+    background-color: orangered;
+    color:blanchedalmond;
+    font-size:medium;
+    font-family:"Snap ITC", "Sans Serif";
+}
+#navSearch{
+    background-color: #333333;
+    color: blanchedalmond;
+}
+div.dropdown {
+    margin: auto;
+    background-color: orangered;
+    color:blanchedalmond;
+    font-size:medium;
+    font-family:"Snap ITC", "Sans Serif";
+}
+#login{
+    margin:1px;
+    background-color: orangered;
+    color:blanchedalmond;
+    font-size: large;
+    font-family:"Snap ITC", "Sans Serif";
+}
+.my-auto{
+    margin: auto;
+    background-color: orangered;
+    color:blanchedalmond;
+    font-size: large;
+    font-family:"Snap ITC", "Sans Serif";
+}
+ul{
+    background-color: #333333;
+}
+#navSearchBar{
+  background-color: #333333;
+}
+.navbar .navbar-expand-md .navbar-light .bg-light{
+  background-color: #333333;
+
+}
+div.row{
+  background-color: #333333;
+}
