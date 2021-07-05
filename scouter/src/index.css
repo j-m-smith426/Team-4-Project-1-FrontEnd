@@ -1,6 +1,5 @@
 body {
-  margin: auto;
-  background-color: #333333;
+  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -11,13 +10,4 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-div {
-  background-color: #333333;
-}
-div.container{
-  background-color: #333333;
-}
-#navSearchBar{
-  background-color: #333333;
 }
