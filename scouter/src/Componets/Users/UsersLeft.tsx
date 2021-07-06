@@ -1,8 +1,9 @@
 import React from "react";
+import UserAll from "./UserAll";
 
 const UserPageLeft:React.FC = (props) => {
     return(
-        <p>User Left</p>
+        <UserAll></UserAll>
     )
 }
 
