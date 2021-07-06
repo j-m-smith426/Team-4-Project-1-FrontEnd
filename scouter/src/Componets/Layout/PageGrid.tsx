@@ -44,7 +44,7 @@ const PageGrid:React.FC = (props) => {
                         <Route exact path="/">
                             <HomeMid />
                         </Route>
-                        <Route path="/user">
+                        <Route path="/user/:user">
                             <UserPageMid />
                         </Route>
                         <Route path="/anime/:animeID">

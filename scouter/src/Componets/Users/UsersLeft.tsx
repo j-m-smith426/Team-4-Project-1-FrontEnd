@@ -3,7 +3,7 @@ import UserAll from "./UserAll";
 
 const UserPageLeft:React.FC = (props) => {
     return(
-        <UserAll></UserAll>
+        <p>User Mid</p>
     )
 }
 

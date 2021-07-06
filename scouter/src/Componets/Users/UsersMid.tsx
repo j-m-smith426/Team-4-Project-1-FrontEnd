@@ -1,9 +1,17 @@
 import React from "react";
+import { RouteComponentProps, withRouter } from "react-router";
+import UserAll from "./UserAll";
+type UserPageMidProps = RouteComponentProps<{user:string}>;
+const UserPageMid:React.FC<UserPageMidProps> = ({match}) => {
+    
+    let username = match.params.user;
 
-const UserPageMid:React.FC = (props) => {
     return(
-        <p>User Mid</p>
+        <p>
+            <UserAll user = {username} ></UserAll>
+        </p>
+
     )
 }
 
-export default UserPageMid;
+export default withRouter(UserPageMid);
