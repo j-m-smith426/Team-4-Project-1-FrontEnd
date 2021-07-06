@@ -4,35 +4,18 @@ import { BrowserRouter as Router,
     Switch,
     Route } from "react-router-dom";
 import { Container } from "reactstrap";
+import UserProfileCard from "../UserProfileCard/UserProfileCard";
 
 const UserPageMid:React.FC = (props) => {
     return(
-      /*  <div>
+      <div>
         <p>User Mid</p>
+        <UserProfileCard/>
         <UserFavoritesCard/>
         
     </div>
-    */
-   <Router>
-       <Container>
-                <Switch>
-                        
-                        <Route path="/user">
-
-                            
-                        </Route>
-                        <Route path="/user/:userID">
-                            
-                        </Route>
-                        <Route path="/user/:userID/favorites">
-                          <div>
-                          <UserFavoritesCard/>
-                          </div>
-                        </Route>
-                       
-                    </Switch>
-                </Container>
-     </Router>
+  
+  
     )
 }
 
