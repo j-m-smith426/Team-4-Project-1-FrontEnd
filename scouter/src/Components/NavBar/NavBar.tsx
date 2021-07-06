@@ -1,71 +1,60 @@
-import React, { isValidElement, useState } from "react";
-import { Button, Col, Form, Input, Nav, Navbar, NavItem, NavLink, NavbarBrand } from "reactstrap";
-import { User } from "../../Entities/User";
+import React from "react";
+import { Button, Col, Form, Input, Nav, Navbar, NavItem, NavLink,  } from "reactstrap";
 import LogIn from "./LogIn/LogIn";
 import SignUp from "./SignUp/SignUp";
+import { useSelector } from "react-redux";
 import "./NavBar.css"
+import { IAppState } from "../../Redux/State";
+import { RootState } from "../..";
 
-
-const newUser:User ={
-    Name:"",
-    Password:"",
-      
-
-}
 
  const NavBar:React.FC<any> = (props) => {
-    const [validUser, setValidUser] = useState(sessionStorage.getItem('username') ? true:false);
+  const currentUser = useSelector((state:IAppState) =>{
+     return state.ILogin.username
+  })  
  
 return(
     
     <div >
-        
-
         <Navbar className="topBar" light expand="md">
-        <NavbarBrand href="#home" >
-              <img 
-                alt=""
-                src="./logo.png"
-                width="300px" 
-                height="150px" 
-                className="d-inline-block align-top"/>{' '}
-            
-          </NavbarBrand>
+        {currentUser === "Guest" ?
         <Nav className="ms-auto" navbar>
-          
-        
         <NavItem>
-            
-           {validUser ?
-           <NavLink >{sessionStorage.getItem("username")}</NavLink>:
-            <LogIn User={newUser} //isValid={setValidUser}
-            />
-}
+            <LogIn User={{Name:'',Password:''}} />
         </NavItem>
-      
-       { /*To be extracted out */}
+        {/* To be extracted out */}
                     <Col className=" my-auto" id="signup">
                         <SignUp/>
                     </Col>
+        </Nav>:
+        <Nav className="ms-auto" navbar>
+        <NavItem>          
+           <NavLink href="/user">{currentUser}</NavLink>          
+        </NavItem>
+        {/* To be extracted out */}
+                    <Col className=" my-auto" id="signup">
+                        Sign Out
+                    </Col>
         </Nav>
+ }
                 
  
             
         </Navbar>
-        <Navbar  color="light" light expand="md">
+        <Navbar color="light" light expand="md">
             <Nav className="mr-auto" navbar>
             <NavItem>
-                <NavLink to='/' >Home</NavLink>
+                <NavLink href='/' >Home</NavLink>
                 </NavItem>
                 <NavItem>
-                <NavLink to='/' >Anime</NavLink>
+                <NavLink href='/anime' >Anime</NavLink>
                 </NavItem>
             </Nav>
-            <Nav id="navSearchBar" className="ms-auto" navbar>
+            <Nav className="ms-auto" navbar>
             <NavItem>
-                <Form id="navSearch" className="d-flex">
+                <Form className="d-flex">
                 <Input type="text" placeholder="Search" className="mr-sm-2" />
-                <Button id="search" variant="outline-info">Search</Button>
+                <Button variant="outline-info">Search</Button>
                 </Form>
                 </NavItem>
                 

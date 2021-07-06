@@ -6,6 +6,8 @@ import { IAppState, IPageState } from "../../Redux/State";
 import { PostCreate } from "../Post/PostCreate";
 import { DisplayPost } from "../Post/PostView";
 import { LoadComments } from "../LoadCommands/LoadComments";
+import AnimeCard from  "../AnimeCard/AnimeCard"
+import AnimeCommentCard from "../AnimeCommentCard/AnimeCommentCard";
 
 type AnimePageMidProps = RouteComponentProps<{animeID:string}>;
 
@@ -19,7 +21,8 @@ const AnimePageMid:React.FC<AnimePageMidProps> = ({match}) => {
         <div>
         <Row>
             <p>{animeID}</p>
-            <PostCreate/>
+            <AnimeCommentCard/>
+          
         </Row>
         <LoadComments />
         </div>
@@ -27,3 +30,7 @@ const AnimePageMid:React.FC<AnimePageMidProps> = ({match}) => {
 }
 
 export default withRouter(AnimePageMid);
+
+/*
+ <PostCreate/> line 25
+ */
