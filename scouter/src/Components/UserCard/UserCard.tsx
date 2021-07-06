@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import "./UserCard.css";
 import {UserStory} from "../../Helpers/UserData";
+
+
 function UserCard() {
     const [currImg, setCurrImg]=useState(0)
     return (
