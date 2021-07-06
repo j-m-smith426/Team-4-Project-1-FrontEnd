@@ -1,9 +1,11 @@
 import axios from '../../axiosConfig'
 import React, { useEffect, useState } from "react";
-import { Redirect } from 'react-router-dom';
+import { Redirect, RouteComponentProps, withRouter } from 'react-router-dom';
 
-const UserList:React.FC<{ user: string }> = (props) => {
+type UserPageProps = RouteComponentProps<{userID:string}>;
 
+const UserDisplay:React.FC<UserPageProps> = ({match}) => {
+    let userID = match.params.userID;
     const [username, setUsername] = useState<any>(null);
     const [email, setEmail] = useState<any>(null);
     const [bio, setBio] = useState<any>(null);
@@ -16,7 +18,7 @@ const UserList:React.FC<{ user: string }> = (props) => {
               
     useEffect(() => {
         
-        axios.get('/users/' + props.user).then(response => {
+        axios.get('/users/' + userID).then(response => {
             if(response.data.users != null){
                 setUsername(response.data.users.TYPEID.substring(2));
                 setEmail(response.data.users.email);
@@ -39,7 +41,7 @@ const UserList:React.FC<{ user: string }> = (props) => {
     }, [])
     if(valid === "invalid"){
         return(
-            <Redirect to="/"/>
+            <Redirect to="/user"/>
         )
     } else if (valid === "valid") {
         return (
@@ -61,4 +63,4 @@ const UserList:React.FC<{ user: string }> = (props) => {
 
 }
 
-export default UserList;
+export default withRouter(UserDisplay);

@@ -1,9 +1,10 @@
 import React from "react";
-import UserAll from "./UserAll";
-
+import UserCard from "../UserCard/UserCard";
 const UserPageLeft:React.FC = (props) => {
     return(
-        <p>User Mid</p>
+       
+       
+        <UserCard/>
     )
 }
 
