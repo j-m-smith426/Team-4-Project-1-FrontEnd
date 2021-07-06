@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './App.css';
-import PageGrid from './Componets/Layout/PageGrid';
+import PageGrid from './Components/Layout/PageGrid';
 
 
 function App() {
