@@ -5,6 +5,7 @@ export interface IPost {
     Timestamp:Date,
     Content:{
         text:string,
-        //imgages:
+        Img:string      
+        
     },
 }

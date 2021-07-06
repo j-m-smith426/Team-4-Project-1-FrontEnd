@@ -11,3 +11,7 @@ div button{
     margin-top: 15px;
     margin-bottom: 5px;
 }
+#commentIMG{
+    float: left;
+    width: 90%;
+}
