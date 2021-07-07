@@ -1,6 +1,8 @@
 import axios from '../../axiosConfig'
 import React, { useEffect, useState } from "react";
 import { Redirect, RouteComponentProps, withRouter } from 'react-router-dom';
+import { Button, Col } from 'reactstrap';
+import UserEdit from './UserEdit';
 
 type UserPageProps = RouteComponentProps<{userID:string}>;
 
@@ -15,7 +17,9 @@ const UserDisplay:React.FC<UserPageProps> = ({match}) => {
             .then(res => {
               const persons = res.data;
               setUsers({ persons });*/
-              
+    async function edit(){
+        setValid("edit");
+    }          
     useEffect(() => {
         
         axios.get('/users/' + userID).then(response => {
@@ -45,13 +49,24 @@ const UserDisplay:React.FC<UserPageProps> = ({match}) => {
         )
     } else if (valid === "valid") {
         return (
+
             <ul>
+            <Col>
                 Username: {username}
-                <br/>
+            </Col>
+            <Col>
                 Email: {email}
-                <br/>
+            </Col>
+            <Col>
                 Bio: {bio}
+            </Col>
+            <Button size='md'  onClick={edit}>Post</Button>
             </ul>
+            
+        )
+    } else if (valid === "edit"){
+        return (
+            <UserEdit user = {username}></UserEdit>
         )
     } else {
         return (
