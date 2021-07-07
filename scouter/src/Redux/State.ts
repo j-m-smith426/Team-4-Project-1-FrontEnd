@@ -6,14 +6,16 @@ export interface Ilogin{
 }
 //Page componets
 export interface IPageState{
-    PageID:string
-    Posts:IPost[]
+    PageID:string,
+    Posts:IPost[],
+   
 }
 
 export interface IAppState {
     ILogin: Ilogin,
     IPageState:IPageState
 }
+
 
 export const initialState:IAppState = {
     ILogin:{
@@ -34,5 +36,6 @@ export const initialState:IAppState = {
                 }
                 
         }],
+       
     }
 }

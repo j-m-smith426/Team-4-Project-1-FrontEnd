@@ -14,6 +14,7 @@ export const Reducer = (state:IAppState = initialState, action: ILoginActions|IC
             let newPosts = [...newState.IPageState.Posts, action.payload.Post]
             newState.IPageState.Posts = newPosts;
             return newState;
+        
         default:
             return newState;
     }

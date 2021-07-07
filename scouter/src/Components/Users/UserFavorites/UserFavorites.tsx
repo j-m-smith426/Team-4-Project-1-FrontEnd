@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "./UserFavorites.css";
-import {UserStory} from "../../Helpers/UserData";
-import AnimeCard from '../AnimeCard/AnimeCard';
+import {UserStory} from "../../../Helpers/UserData";
+import AnimeCard from '../../Anime/AnimeCard/AnimeCard';
 
 function UserFavoritesCard() {
     const [currImg, setCurrImg]=useState(0)
