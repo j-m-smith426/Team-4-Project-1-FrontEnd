@@ -1,6 +1,8 @@
+import { prependOnceListener } from "process";
 import React from "react";
 import { Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Button, Row, Col } from "reactstrap";
 import { IPost } from "../../Entities/Post";
+import { Storage } from "aws-amplify";
 import './PostView.css';
 
 interface Iprops{
@@ -28,7 +30,33 @@ function timeDifference(oldTime:Date){
 
 }
 
+
+
 export const DisplayPost:React.FC<Iprops> = (props:Iprops) => {
+    const getImg = () =>{
+        let img = props.post.Content.Img;
+        let body = new FileReader();
+        let result:any;
+        body.onload = (event) =>{
+            result = body.result;
+            let cardimg = document.getElementById(props.post.PostID) as HTMLImageElement
+            cardimg.src = result;
+        };
+        if(img){
+            Storage.get(img,{download:true}).then(p => {
+               let obj = p as any
+               body.readAsDataURL(obj.Body);
+            });
+            
+             
+            
+                   
+            
+    }
+    return 'empty';
+    }
+
+    
 
     return(
         <Col className='col-10'>
@@ -36,6 +64,7 @@ export const DisplayPost:React.FC<Iprops> = (props:Iprops) => {
             
             <Card>
             <CardTitle tag="h6">{props.post.AuthorID}</CardTitle>
+            <CardImg src={getImg()} hidden ={!Boolean(props.post.Content.Img)} id = {props.post.PostID} />
             <Card>
                 <CardBody>      
                     

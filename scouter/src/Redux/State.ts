@@ -28,7 +28,9 @@ export const initialState:IAppState = {
                 PostID:'test',
                 Timestamp: new Date(),
                 Content:{
-                    text:'This is the initial post'
+                    text:'This is the initial post',
+                    Img:''
+                    
                 }
                 
         }],
