@@ -3,6 +3,7 @@ import { Button, Col, Form, Input, Nav, Navbar, NavItem, NavLink,  } from "react
 import LogIn from "./LogIn/LogIn";
 import SignUp from "./SignUp/SignUp";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import "./NavBar.css"
 import { IAppState } from "../../Redux/State";
 import { RootState } from "../..";
@@ -29,7 +30,7 @@ return(
         </Nav>:
         <Nav className="ms-auto" navbar>
         <NavItem>          
-           <NavLink href="/user">{currentUser}</NavLink>          
+           <Link to ={'/user/'+ currentUser}>{currentUser}</Link>          
         </NavItem>
         {/* To be extracted out */}
                     <Col className=" my-auto" id="signup">
@@ -44,10 +45,10 @@ return(
         <Navbar color="light" light expand="md">
             <Nav className="mr-auto" navbar>
             <NavItem>
-                <NavLink href='/' >Home</NavLink>
+                <Link to='/' >Home</Link>
                 </NavItem>
                 <NavItem>
-                <NavLink href='/anime' >Anime</NavLink>
+                <Link to='/anime' >Anime</Link>
                 </NavItem>
             </Nav>
             <Nav className="ms-auto" navbar>

@@ -3,15 +3,25 @@ import UserFavoritesCard from "./UserFavorites/UserFavorites";
 import { BrowserRouter as Router,
     Switch,
     Route } from "react-router-dom";
+import { RouteComponentProps, withRouter } from "react-router";
 import { Container } from "reactstrap";
 import UserProfileCard from "./UserProfileCard/UserProfileCard";
 
-const UserPageMid:React.FC = (props) => {
+type UserPageMidProps = RouteComponentProps<{userID:string}>;
+
+const UserPageMid:React.FC<UserPageMidProps> = ({match}) => {
+    let userID = match.params.userID;
+    
     return(
       <div>
-        <p>User Mid</p>
-        <UserProfileCard/>
-        <UserFavoritesCard/>
+        <p>{userID}</p>
+        <Switch>
+        <Route path="/user/:userID/favorites">
+            <UserFavoritesCard/>
+        </Route>
+        </Switch>
+        {/* <UserProfileCard/>
+        <UserFavoritesCard/> */}
         
     </div>
   
@@ -19,4 +29,4 @@ const UserPageMid:React.FC = (props) => {
     )
 }
 
-export default UserPageMid;
+export default withRouter(UserPageMid);

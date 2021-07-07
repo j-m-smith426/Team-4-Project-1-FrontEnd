@@ -33,7 +33,7 @@ const PageGrid:React.FC = (props) => {
                         <Route exact path="/">
                             <HomeLeft />
                         </Route>
-                        <Route path="/user">
+                        <Route path="/user/:userID">
                             <UserPageLeft />
                         </Route>
                         <Route path="/anime">
@@ -49,21 +49,17 @@ const PageGrid:React.FC = (props) => {
                             <HomeMid />
                         </Route>
                         <Route path="/user/:userID">
+                            <UserPageMid/>
+                        </Route>
+                        <Route path="/user/:userID">
                             <UserDisplay />
                         </Route>
                         <Route path="/user">
 
                             <UserPageMid />
                         </Route>
-                        <Route path="/user/:userID">
-                            <UserPageMid/>
-                        </Route>
-                        <Route path="/user/:userID/favorites">
-                          <UserPageMid/>
-                              <UserFavoritesCard/>
-                             
                         
-                        </Route>
+                        
                         <Route path="/anime/:animeID">
                             <AnimePageMid />
                         </Route>
@@ -71,17 +67,9 @@ const PageGrid:React.FC = (props) => {
                 </Col>
                 <Col  id="right">
                     {/* Right Pages */}
-                    <Switch>
-                        <Route exact path="/">
+                    
                             <HomeRight />
-                        </Route>
-                        <Route path="/user">
-                            <UserPageRight />
-                        </Route>
-                        <Route path="/anime">
-                            <AnimePageRight />
-                        </Route>
-                    </Switch>
+                       
                 </Col>
             </Row>
         </Container>

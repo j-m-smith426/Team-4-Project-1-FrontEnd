@@ -1,6 +1,12 @@
 import React from "react";
 import UserCard from "./UserCard/UserCard";
-const UserPageLeft:React.FC = (props) => {
+import { RouteComponentProps, withRouter } from "react-router";
+
+
+type UserPageProps = RouteComponentProps<{userID:string}>;
+const UserPageLeft:React.FC<UserPageProps> = ({match}) => {
+    let userID = match.params.userID
+    
     return(
        
        
@@ -8,4 +14,4 @@ const UserPageLeft:React.FC = (props) => {
     )
 }
 
-export default UserPageLeft;
+export default withRouter(UserPageLeft);

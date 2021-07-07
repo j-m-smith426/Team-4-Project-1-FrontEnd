@@ -10,7 +10,8 @@ export enum LoginActions{
 
 export enum CreatePostActions{
     CREATE = 'Create Post',
-    ADD = 'Add Comment'
+    ADD = 'Add Comment',
+    Load = 'Load Post'
 }
 
 
