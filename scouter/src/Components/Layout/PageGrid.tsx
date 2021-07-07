@@ -55,13 +55,9 @@ const PageGrid:React.FC = (props) => {
 
                             <UserPageMid />
                         </Route>
-<<<<<<< HEAD
-
-=======
                         <Route path="/user/:userID">
                             <UserPageMid/>
                         </Route>
->>>>>>> eac5f77a1e71259f6a442449da51856ae362bef6
                         <Route path="/user/:userID/favorites">
                           <UserPageMid/>
                               <UserFavoritesCard/>

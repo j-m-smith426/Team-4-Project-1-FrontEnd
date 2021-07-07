@@ -51,10 +51,10 @@ const LogIn:React.FC<Iprops> = (props:Iprops) => {
             <Form inline>
                 <Row>
                     <Col>
-                        <Input type="text" placeholder="UserName" name="Name" onChange={handler}/>
+                        <Input id = "uname" type="text" placeholder="UserName" name="Name" onChange={handler}/>
                     </Col>
                     <Col>
-                        <Input type="password" placeholder="Password" name="Password" onChange={handler}/>
+                        <Input id = "pword" type="password" placeholder="Password" name="Password" onChange={handler}/>
                     </Col>
                     <Col className="col-2 my-auto" id="login">
                         <NavLink onClick={submit}>log in</NavLink>
