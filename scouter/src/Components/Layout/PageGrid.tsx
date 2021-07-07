@@ -14,8 +14,8 @@ import UserPageMid from "../Users/UsersMid";
 import HomeMid from "../Home/HomeMid";
 import HomeLeft from "../Home/HomeLeft";
 import HomeRight from "../Home/HomeRight";
-import Carousel from "../Carousel/Carousel";
-import UserFavoritesCard from "../UserFavorites/UserFavorites";
+
+import UserFavoritesCard from "../Users/UserFavorites/UserFavorites";
 import UserDisplay from "../Users/UserDisplay";
 
 const PageGrid:React.FC = (props) => {
@@ -33,7 +33,7 @@ const PageGrid:React.FC = (props) => {
                         <Route exact path="/">
                             <HomeLeft />
                         </Route>
-                        <Route path="/user">
+                        <Route path="/user/:userID">
                             <UserPageLeft />
                         </Route>
                         <Route path="/anime">
@@ -45,8 +45,11 @@ const PageGrid:React.FC = (props) => {
                     {/* Mid pages */}
                     <Switch>
                         <Route exact path="/">
-                            <Carousel/>
+                            
                             <HomeMid />
+                        </Route>
+                        <Route path="/user/:userID">
+                            <UserPageMid/>
                         </Route>
                         <Route path="/user/:userID">
                             <UserDisplay />
@@ -54,16 +57,8 @@ const PageGrid:React.FC = (props) => {
                         <Route path="/user">
 
                             <UserPageMid />
-                        </Route>
-                        <Route path="/user/:userID">
-                            <UserPageMid/>
-                        </Route>
-                        <Route path="/user/:userID/favorites">
-                          <UserPageMid/>
-                              <UserFavoritesCard/>
-                             
+                        </Route>                       
                         
-                        </Route>
                         <Route path="/anime/:animeID">
                             <AnimePageMid />
                         </Route>
@@ -71,17 +66,9 @@ const PageGrid:React.FC = (props) => {
                 </Col>
                 <Col  id="right">
                     {/* Right Pages */}
-                    <Switch>
-                        <Route exact path="/">
+                    
                             <HomeRight />
-                        </Route>
-                        <Route path="/user">
-                            <UserPageRight />
-                        </Route>
-                        <Route path="/anime">
-                            <AnimePageRight />
-                        </Route>
-                    </Switch>
+                       
                 </Col>
             </Row>
         </Container>

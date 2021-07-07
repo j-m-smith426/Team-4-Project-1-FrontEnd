@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import "./UserCard.css";
-import {UserStory} from "../../Helpers/UserData";
-
-
-function UserCard() {
+import {UserStory} from "../../../Helpers/UserData";
+import {Link} from 'react-router-dom'
+import { RouteComponentProps, withRouter } from "react-router";
+type UserPageProps = RouteComponentProps<{userID:string}>;
+const UserCard:React.FC<UserPageProps> = ({match}) => {
+    let userID = match.params.userID
+    
     const [currImg, setCurrImg]=useState(0)
     return (
        
@@ -18,14 +21,15 @@ function UserCard() {
 
                     </p>
                 </fieldset>
-                
-                <a href="/user/:userID/favorites" >Favorites</a>
-                <p></p>
-
-                <a href="/user/:userID/watchList">Watch List</a>
+                <li>
+                <Link to={`/user/${userID}/favorites`} >Favorites</Link>
+                </li>
+                <li>
+                <Link to={`/user/${userID}/watchList`}>Watch List</Link>
+                </li>
             </div>
             
         </div>
     )
 }
-export default UserCard
+export default withRouter(UserCard);

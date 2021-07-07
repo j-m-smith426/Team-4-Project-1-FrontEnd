@@ -1,5 +1,6 @@
 import { prependOnceListener } from "process";
 import React from "react";
+import { Link } from "react-router-dom";
 import { Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Button, Row, Col } from "reactstrap";
 import { IPost } from "../../Entities/Post";
 import { Storage } from "aws-amplify";
@@ -46,12 +47,7 @@ export const DisplayPost:React.FC<Iprops> = (props:Iprops) => {
             Storage.get(img,{download:true}).then(p => {
                let obj = p as any
                body.readAsDataURL(obj.Body);
-            });
-            
-             
-            
-                   
-            
+            });       
     }
     return 'empty';
     }
@@ -63,7 +59,8 @@ export const DisplayPost:React.FC<Iprops> = (props:Iprops) => {
         <Row>
             
             <Card>
-            <CardTitle tag="h6">{props.post.AuthorID}</CardTitle>
+            <CardTitle tag="h6">
+                <Link to= {'/user/'+props.post.AuthorID}>props.post.AuthorID</Link></CardTitle>
             <CardImg src={getImg()} hidden ={!Boolean(props.post.Content.Img)} id = {props.post.PostID} />
             <Card>
                 <CardBody>      
