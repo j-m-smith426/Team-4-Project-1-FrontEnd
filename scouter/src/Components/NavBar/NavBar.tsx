@@ -45,7 +45,7 @@ return(
         <Navbar color="light" light expand="md">
             <Nav className="mr-auto" navbar>
             <NavItem>
-                <Link to='/' >Home</Link>
+                <Link id = "Home" to='/'>Home</Link>
                 </NavItem>
                 <NavItem>
                 <Link to='/anime' >Anime</Link>
