@@ -1,17 +1,25 @@
 import axios from '../../axiosConfig'
 import React, { useEffect, useState } from "react";
 import { Redirect, RouteComponentProps, withRouter } from 'react-router-dom';
-import { Button, Col } from 'reactstrap';
+import { Button, CardImg, Col } from 'reactstrap';
 import UserEdit from './UserEdit';
+import {Storage} from 'aws-amplify'
+import { IAppState } from '../../Redux/State';
+import {useSelector} from 'react-redux'
 
 type UserPageProps = RouteComponentProps<{userID:string}>;
 
 const UserDisplay:React.FC<UserPageProps> = ({match}) => {
     let userID = match.params.userID;
+    let currentUser = useSelector((state:IAppState) =>{
+        return state.ILogin.username;
+    })
+    
     const [username, setUsername] = useState<any>(null);
     const [email, setEmail] = useState<any>(null);
     const [bio, setBio] = useState<any>(null);
     const [valid, setValid] = useState<any>("loading");
+    const [Img, setImg] = useState('');
 
             /*axios.get(`https://jsonplaceholder.typicode.com/users`)
             .then(res => {
@@ -33,6 +41,10 @@ const UserDisplay:React.FC<UserPageProps> = ({match}) => {
                 } else {
                     setBio(response.data.users.profile);
                 }
+                setImg(response.data.users.img);
+                console.log(Img);
+                
+
                 setValid("valid");
             } else {
                 setValid("invalid");
@@ -43,6 +55,26 @@ const UserDisplay:React.FC<UserPageProps> = ({match}) => {
           });
 
     }, [])
+
+    const getImg = () =>{
+        let img = Img;
+        let body = new FileReader();
+        let result:any;
+        body.onload = (event) =>{
+            result = body.result;
+            let cardimg = document.getElementById('profile') as HTMLImageElement
+            cardimg.src = result;
+        };
+        if(img){
+            Storage.get(img,{download:true}).then(p => {
+               let obj = p as any
+               body.readAsDataURL(obj.Body);
+            });       
+    }
+    return 'empty';
+    }
+
+
     if(valid === "invalid"){
         return(
             <Redirect to="/user"/>
@@ -51,6 +83,7 @@ const UserDisplay:React.FC<UserPageProps> = ({match}) => {
         return (
 
             <ul>
+                <CardImg src={getImg()} id='profile' />
             <Col>
                 Username: {username}
             </Col>
@@ -60,7 +93,7 @@ const UserDisplay:React.FC<UserPageProps> = ({match}) => {
             <Col>
                 Bio: {bio}
             </Col>
-            <Button size='md'  onClick={edit}>Post</Button>
+            <Button size='md' hidden={!(currentUser === userID)} onClick={edit}>Post</Button>
             </ul>
             
         )

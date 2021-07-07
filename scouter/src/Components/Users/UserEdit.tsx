@@ -1,7 +1,7 @@
 import axios from '../../axiosConfig'
 import React, { ChangeEvent, Props, useEffect, useState } from "react";
 import { Redirect, RouteComponentProps, withRouter } from 'react-router-dom';
-import { Button, Col, Form, FormGroup, Input } from 'reactstrap';
+import { Button, CardImg, Col, Form, FormGroup, Input } from 'reactstrap';
 import { Storage } from "aws-amplify";
 
 const UserEdit:React.FC<{ user: string }> = ({user}) => {
@@ -12,7 +12,7 @@ const UserEdit:React.FC<{ user: string }> = ({user}) => {
     const [bio, setBio] = useState<any>(null);
     const [valid, setValid] = useState<any>("loading");
     const [error, setError] = useState<any>("");
-
+    const [Img, setImg] = useState('');
             /*axios.get(`https://jsonplaceholder.typicode.com/users`)
             .then(res => {
               const persons = res.data;
@@ -30,6 +30,7 @@ const UserEdit:React.FC<{ user: string }> = ({user}) => {
                 } else {
                     setBio(response.data.users.profile);
                 }
+                setImg(response.data.users.img);
                 setValid("valid");
             } else {
                 setValid("invalid");
@@ -77,7 +78,7 @@ const UserEdit:React.FC<{ user: string }> = ({user}) => {
             setError("Invalid user"); 
         }
         
-        
+        window.location.reload();
 
     }
     const createImgURL = ()=>{
@@ -104,6 +105,7 @@ const UserEdit:React.FC<{ user: string }> = ({user}) => {
     } else if(valid != "invalid"){
         return (
         <Form id='Post'>
+            <CardImg src={createImgURL()} id='profile' />
         <Col>
             Username: {username}
         </Col>
