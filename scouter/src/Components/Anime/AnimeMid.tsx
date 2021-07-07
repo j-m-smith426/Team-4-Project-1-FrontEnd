@@ -6,8 +6,8 @@ import { IAppState, IPageState } from "../../Redux/State";
 import { PostCreate } from "../Post/PostCreate";
 import { DisplayPost } from "../Post/PostView";
 import { LoadComments } from "../LoadCommands/LoadComments";
-import AnimeCard from  "../AnimeCard/AnimeCard"
-import AnimeCommentCard from "../AnimeCommentCard/AnimeCommentCard";
+import AnimeCard from  "./AnimeCard/AnimeCard"
+import AnimeCommentCard from "./AnimeCommentCard/AnimeCommentCard";
 
 type AnimePageMidProps = RouteComponentProps<{animeID:string}>;
 

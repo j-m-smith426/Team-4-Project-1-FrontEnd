@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "./AnimeCommentCard.css";
-import {LoadComments} from "../LoadCommands/LoadComments"
-import { PostCreate } from '../Post/PostCreate';
+import {LoadComments} from "../../LoadCommands/LoadComments"
+import { PostCreate } from '../../Post/PostCreate';
 function AnimeCommentCard() {
     
     return (

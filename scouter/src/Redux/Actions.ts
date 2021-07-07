@@ -1,3 +1,4 @@
+import { ssObj } from "../Components/Home/Alltime/SlideShowImgObj";
 import { IPost } from "../Entities/Post";
 
 export enum LoginActions{
@@ -6,10 +7,12 @@ export enum LoginActions{
 
 }
 
+
 export enum CreatePostActions{
     CREATE = 'Create Post',
     ADD = 'Add Comment'
 }
+
 
 export interface ICreatePostActions{
     type: CreatePostActions,

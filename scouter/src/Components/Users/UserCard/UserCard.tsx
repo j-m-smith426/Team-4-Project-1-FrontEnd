@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "./UserCard.css";
-import {UserStory} from "../../Helpers/UserData";
+import {UserStory} from "../../../Helpers/UserData";
 
 
 function UserCard() {
