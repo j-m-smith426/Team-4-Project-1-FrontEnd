@@ -79,7 +79,6 @@ const UserEdit:React.FC<{ user: string }> = ({user}) => {
             setError("Invalid user"); 
         }
         
-        window.location.reload();
 
     }
     const createImgURL = ()=>{

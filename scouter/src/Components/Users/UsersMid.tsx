@@ -6,7 +6,7 @@ import { BrowserRouter as Router,
 import { RouteComponentProps, withRouter } from "react-router";
 import { Container } from "reactstrap";
 import UserProfileCard from "./UserProfileCard/UserProfileCard";
-import { CreatePostActions } from "../../Redux/Actions";
+import { CreatePostActions, SwitchPageAction } from "../../Redux/Actions";
 import axios from "../../axiosConfig";
 import { useDispatch } from "react-redux";
 import { IPost } from "../../Entities/Post";
@@ -42,6 +42,12 @@ const UserPageMid:React.FC<UserPageMidProps> = ({match}) => {
     }
 }
 console.log(posts);
+dispatch({
+    type:SwitchPageAction.UPDATE,
+    payload:{
+        name:userID
+    }
+});
     dispatch({
         type:CreatePostActions.Load,
         payload:{

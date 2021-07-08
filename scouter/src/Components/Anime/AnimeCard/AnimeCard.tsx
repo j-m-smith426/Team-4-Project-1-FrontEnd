@@ -2,24 +2,87 @@ import React, { useState } from 'react'
 import "./AnimeCard.css";
 import { BrowserRouter as Router,
     Switch,
-    Route } from "react-router-dom";
-function AnimeCard() {
+    Route, 
+    RouteComponentProps,
+    Link,
+    withRouter} from "react-router-dom";
+
+import {Storage} from 'aws-amplify'
+import { useEffect } from 'react';
+import axiosConfig from '../../../axiosConfig';
+
+
+export interface IAnime {
+    TYPEID: string;
+    REFERENCE: string;
+    name: string;
+    description:string;
+    genres: string[];
+    image:string;
     
+}
+
+let newAnime:IAnime = {
+    TYPEID: '',
+    REFERENCE: '',
+    name: '',
+    description:'',
+    genres: [],
+    image:''
+}
+
+type AnimePageMidProps = RouteComponentProps<{animeID:string}>;
+
+const AnimeCard:React.FC<AnimePageMidProps> = ({match}) => {
+    const [anime,setAnime] = useState<any>(newAnime)
+    useEffect(() =>{
+        getAnime();
+     },[]);
+
+     const getAnime = async () =>{
+        let animeResponse:any = 'null'; 
+       axiosConfig.get('/Anime/'+match.params.animeID).then(response =>{
+           animeResponse = response.data;
+           console.log(animeResponse);
+           setAnime(animeResponse);
+       })
+   
+    }
+
+     console.log('Anime card: '+anime);
+    
+        let img = anime.image;
+        let body = new FileReader();
+        let result:any;
+        body.onload = (event) =>{
+            result = body.result;
+            let cardimg = document.getElementById('AnimeProfile') as HTMLImageElement
+            cardimg.src = result;
+        };
+        if(img){
+            Storage.get(img,{download:true}).then(p => {
+               let obj = p as any
+               body.readAsDataURL(obj.Body);
+            });       
+    }
+
+
     return (
         
         <div className="animeCard">
             <div className="animeCardInner">
-                <img src="" alt="Anime Picture"/>
-                <h3>Anime Title: </h3>
+                <img alt="Anime Picture" id='AnimeProfile'/>
+                <h3>Anime Title: {match.params.animeID}</h3>
                 <fieldset className="animieInfoBox">
                     <legend>Synopsis:</legend>
                     <p className="animeInfo">
+                        {anime.description}
                     </p>
                 </fieldset>
                 
-                <a id="animeCommentLink" href="/anime/:animeId" >Comments</a>
+                <Link id="animeCommentLink" to= {'anime/'+match.params.animeID} >Comments</Link>
                 <p></p>
-                <a id="animeRatingsLink" href="/anime/:animeId" >Ratings</a>
+                <Link id="animeRatingsLink" to= {'anime/'+match.params.animeID} >Ratings</Link>
 
               
             </div>
@@ -27,4 +90,4 @@ function AnimeCard() {
         </div>
     )
 }
-export default AnimeCard
+export default withRouter(AnimeCard)
