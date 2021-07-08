@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent, useState } from "react";
 import { Button, Col, Form, Input, Nav, Navbar, NavbarBrand, NavItem, NavLink,  } from "reactstrap";
 import LogIn from "./LogIn/LogIn";
 import SignUp from "./SignUp/SignUp";
@@ -16,6 +16,8 @@ import { useEffect } from "react";
   const currentUser = useSelector((state:IAppState) =>{
      return state.ILogin.username
   })
+  const [input,setInput] = useState('');
+  //Check is a user is logged in
   const dispatch = useDispatch();
   useEffect(() =>{
       checkUser();
@@ -44,6 +46,7 @@ import { useEffect } from "react";
     })
   }
 }
+//handle singout
   const signOut =async() => {
     await Auth.signOut();
     dispatch({
@@ -52,6 +55,10 @@ import { useEffect } from "react";
            name:'Guest'
         }
     })
+}
+//handle search input
+const handler = (param:ChangeEvent<HTMLInputElement>) =>{
+    setInput(param.target.value);
 }
  
 return(
@@ -97,8 +104,10 @@ return(
             <Nav className="ms-auto" navbar>
             <NavItem>
                 <Form className="d-flex">
-                <Input type="text" placeholder="Search" className="mr-sm-2" />
-                <Button id="btnSearch" variant="outline-info">Search</Button>
+                <Input type="text" name="Search" className="mr-sm-2" onChange={handler} />
+                <Link to={'/search/'+input}>
+                Search
+                </Link>
                 </Form>
                 </NavItem>
                 
