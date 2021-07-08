@@ -9,17 +9,17 @@ function AnimeCard() {
         
         <div className="animeCard">
             <div className="animeCardInner">
-                <img src="../images/moon.jpg" alt="User Picture"/>
+                <img src="" alt="Anime Picture"/>
                 <h3>Anime Title: </h3>
                 <fieldset className="animieInfoBox">
                     <legend>Synopsis:</legend>
                     <p className="animeInfo">
-
                     </p>
                 </fieldset>
                 
-                <a href="/anime/:animeId" >Comments</a>
+                <a id="animeCommentLink" href="/anime/:animeId" >Comments</a>
                 <p></p>
+                <a id="animeRatingsLink" href="/anime/:animeId" >Ratings</a>
 
               
             </div>

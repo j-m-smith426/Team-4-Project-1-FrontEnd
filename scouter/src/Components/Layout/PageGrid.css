@@ -1,5 +1,9 @@
-.color div:hover{
-    background-color: burlywood;
+/*.color div:hover{
+    background-color:#333333;
+}
+*/
+#left{
+    text-align: center;
 }
 
 #mid {

@@ -8,7 +8,7 @@ function AnimeCommentCard() {
         
         <div className="animeCommentCard">
             <div className="animeCommentCardInner">
-                <img src="../images/moon.jpg" alt="User Picture"/>
+                <img src="" alt="Anime Picture"/>
                 <h3>Anime Title: </h3>
                 <fieldset className="animeCommentsBox">
                     <legend>Comments:</legend>

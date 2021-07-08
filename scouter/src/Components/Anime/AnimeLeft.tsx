@@ -5,7 +5,7 @@ import './Anime.css';
 const AnimePageLeft:React.FC = (props) => {
     return(
         <div>
-        <Row id='lRow'>Anime Left</Row>
+        <Row id='lRow'></Row>
         <AnimeCard/>
         </div>
     )
