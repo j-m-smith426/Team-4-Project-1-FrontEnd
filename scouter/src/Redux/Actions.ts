@@ -19,6 +19,7 @@ export interface ICreatePostActions{
     type: CreatePostActions,
     payload: {
         Post:IPost
+        Posts:IPost[]
     }
 }
 

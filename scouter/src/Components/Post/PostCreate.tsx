@@ -8,12 +8,16 @@ import { Storage } from "aws-amplify";
 import './PostCreate.css'
 import { timeStamp } from "console";
 import { allowedNodeEnvironmentFlags } from "process";
+import axios from '../../axiosConfig';
+import { RouteComponentProps, withRouter } from "react-router-dom";
 
-export const PostCreate:React.FC = (props) =>{
+type SelectPageMidProps = RouteComponentProps<{animeID:string,userID:string}>;
+
+const PostCreate:React.FC<SelectPageMidProps> = ({match}) =>{
     const [message, setMessage] = useState('');
     const [imgFile,setImgFile] = useState(new File([],'empty'));
-    const currentUser = useSelector((state:IAppState) =>{
-            return state.ILogin.username
+    const [currentUser, CurrentPage] = useSelector((state:IAppState) =>{
+            return [state.ILogin.username, state.IPageState.PageID];
            })
     const dispatch = useDispatch();
 
@@ -28,7 +32,7 @@ export const PostCreate:React.FC = (props) =>{
     }
         const TimeStamp = new Date();
         const newPost:IPost = {
-            ParentID: '0',
+            ParentID: 'A#'+CurrentPage,
             AuthorID: currentUser,
             Timestamp: TimeStamp,
             PostID:currentUser+'-'+TimeStamp,
@@ -38,8 +42,17 @@ export const PostCreate:React.FC = (props) =>{
             },
 
         };
-        console.log(newPost.PostID);
-        
+        let prefix = match.params.animeID ? 'A#':'U#';
+        let suffux = match.params.animeID ? match.params.animeID:match.params.userID;
+        console.log(match.params.animeID);
+        axios.post('/Post/add', {
+            comment:{
+                TYPEID: prefix+suffux,
+                content: newPost.Content.text,
+                image:newPost.Content.Img,
+                REFERENCE: `${newPost.AuthorID}#P#${newPost.PostID}#${newPost.ParentID}`
+            }
+        })
             
         dispatch({
             type:CreatePostActions.CREATE,
@@ -51,7 +64,7 @@ export const PostCreate:React.FC = (props) =>{
         setImgFile(new File([],'empty'));
         let form =document.getElementById('Post') as HTMLFormElement
         form.reset();
-        
+       
 
     }
         
@@ -111,3 +124,4 @@ export const PostCreate:React.FC = (props) =>{
         </Card>
     )
 }
+export default withRouter(PostCreate);
