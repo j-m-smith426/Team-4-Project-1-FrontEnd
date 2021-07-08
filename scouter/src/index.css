@@ -102,3 +102,17 @@ ul{
 p.card-text{
   color: orangered;
 }
+.userLinks{
+
+  list-style: none;
+  text-decoration: none;
+  color:blanchedalmond
+} 
+.userLinks:visted{
+  text-decoration: none;
+  color:orangered
+}
+#userPost{
+  background-color: orangered;
+  color: blanchedalmond;
+} 

@@ -11,6 +11,9 @@ import axios from "../../axiosConfig";
 import { useDispatch } from "react-redux";
 import { IPost } from "../../Entities/Post";
 import { LoadComments } from "../LoadCommands/LoadComments";
+import UserEdit from "./UserEdit";
+import UserDisplay from "./UserDisplay";
+import PostCreate from "../Post/PostCreate";
 
 type UserPageMidProps = RouteComponentProps<{userID:string}>;
 
@@ -60,6 +63,7 @@ console.log(posts);
             <UserFavoritesCard/>
         </Route>
         <Route path="/user/:userID">
+            <PostCreate/>
             <LoadComments />
         </Route>
         </Switch>
