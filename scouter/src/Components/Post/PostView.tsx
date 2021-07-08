@@ -60,7 +60,7 @@ export const DisplayPost:React.FC<Iprops> = (props:Iprops) => {
             
             <Card>
             <CardTitle tag="h6">
-                <Link to= {'/user/'+props.post.AuthorID}>props.post.AuthorID</Link></CardTitle>
+                <Link to= {'/user/'+props.post.AuthorID}>{props.post.AuthorID}</Link></CardTitle>
             <CardImg src={getImg()} hidden ={!Boolean(props.post.Content.Img)} id = {props.post.PostID} />
             <Card>
                 <CardBody>      
