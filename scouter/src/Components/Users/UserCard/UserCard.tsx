@@ -3,6 +3,7 @@ import "./UserCard.css";
 import {UserStory} from "../../../Helpers/UserData";
 import {Link} from 'react-router-dom'
 import { RouteComponentProps, withRouter } from "react-router";
+import UserDisplay from '../UserDisplay';
 type UserPageProps = RouteComponentProps<{userID:string}>;
 const UserCard:React.FC<UserPageProps> = ({match}) => {
     let userID = match.params.userID
@@ -12,15 +13,10 @@ const UserCard:React.FC<UserPageProps> = ({match}) => {
        
         <div className="userCard">
             <div className="userCardInner">
-                <img src={UserStory[currImg].userPic}alt="User Picture"/>
-                <h3>{UserStory[currImg].userName} </h3>
-                <fieldset className="userBioBox">
-                    <legend>Bio:</legend>
-                    <p className="userBioInfo">
-                        {UserStory[currImg].userBio}
+                
 
-                    </p>
-                </fieldset>
+                    
+                <UserDisplay />
                 <li>
                 <Link to={`/user/${userID}/favorites`} >Favorites</Link>
                 </li>

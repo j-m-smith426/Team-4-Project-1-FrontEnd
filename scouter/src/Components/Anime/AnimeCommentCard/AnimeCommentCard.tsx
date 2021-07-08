@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "./AnimeCommentCard.css";
 import {LoadComments} from "../../LoadCommands/LoadComments"
-import { PostCreate } from '../../Post/PostCreate';
+import  PostCreate  from '../../Post/PostCreate';
 function AnimeCommentCard() {
     
     return (
@@ -12,10 +12,10 @@ function AnimeCommentCard() {
                 <h3>Anime Title: </h3>
                 <fieldset className="animeCommentsBox">
                     <legend>Comments:</legend>
-                    <p className="AnimeComments">
+                    
                         <PostCreate/>
 
-                    </p>
+                    
                 </fieldset>
                 
                 

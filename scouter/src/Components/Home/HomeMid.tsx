@@ -1,6 +1,6 @@
 import React from "react";
 import { Row } from "reactstrap";
-import { PostCreate } from "../Post/PostCreate";
+import  PostCreate  from "../Post/PostCreate";
 import Alltime from "./Alltime/Alltime";
 
 const HomeMid:React.FC = (props) => {
@@ -10,7 +10,7 @@ const HomeMid:React.FC = (props) => {
             <Alltime />
         </Row>
         <Row>
-            <PostCreate/>
+            {/* <PostCreate/> */}
         </Row>
         </div>
     )
