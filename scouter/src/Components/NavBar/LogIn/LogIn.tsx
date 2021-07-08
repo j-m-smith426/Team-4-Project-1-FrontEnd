@@ -16,6 +16,7 @@ interface Iprops{
 const LogIn:React.FC<Iprops> = (props:Iprops) => {
 
     const [user, setUser]= useState(props.User)
+    const [message, setMessage] = useState(String);
     const dispatch = useDispatch();
     
     const handler = (input:ChangeEvent<HTMLInputElement>) =>{
@@ -59,7 +60,6 @@ const LogIn:React.FC<Iprops> = (props:Iprops) => {
                     <Col className="col-2 my-auto" id="login">
                         <NavLink onClick={submit}>log in</NavLink>
                     </Col>
-                    
                     
                 </Row>
             </Form>

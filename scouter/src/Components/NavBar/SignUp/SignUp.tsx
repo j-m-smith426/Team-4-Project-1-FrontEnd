@@ -4,6 +4,7 @@ import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle, Form, FormGroup, 
 import { Auth } from "aws-amplify";
 import './SignUp.css'
 import SignUpInt from "../../../Entities/SignUp";
+import axios from '../../../axiosConfig';
 
 const SignUp:React.FC = (props) => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -22,11 +23,21 @@ const SignUp:React.FC = (props) => {
                 password: signUp.signPass,
                 attributes: {
                     email: signUp.signEmail,          
-                    
                 }
             });
             console.log(user);
-            submitted = true;
+            let newUser = {user:{TYPEID:"U#" + signUp.signName, REFERENCE: "0", email:signUp.signEmail}};
+            axios.post('/users/add', newUser).then(response => {
+                submitted = true;
+                setMessage(`Submitted. Please check email for varification`);
+            }).catch(error => {
+                user.deleteUser((error, data) => {
+                    Auth.signOut({global:true});
+                });
+                setMessage(error.message);
+            });
+
+
         } catch (error) {
             console.log('error signing up:', error);
             setMessage(error.message);
