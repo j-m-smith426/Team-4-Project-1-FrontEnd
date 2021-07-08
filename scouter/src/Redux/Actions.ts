@@ -14,6 +14,10 @@ export enum CreatePostActions{
     Load = 'Load Post'
 }
 
+export enum SwitchPageAction{
+    UPDATE = 'update page'
+}
+
 
 export interface ICreatePostActions{
     type: CreatePostActions,
@@ -21,6 +25,11 @@ export interface ICreatePostActions{
         Post:IPost
         Posts:IPost[]
     }
+}
+
+export interface ISwitchPageActions{
+    type:SwitchPageAction,
+    payload:{name:string}
 }
 
 export interface ILoginActions {

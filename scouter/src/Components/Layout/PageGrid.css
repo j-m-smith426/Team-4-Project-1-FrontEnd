@@ -2,12 +2,22 @@
     background-color:#333333;
 }
 */
+@media (min-height:500px){
+.container{
+    display:flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 800px;
+}
+}
 #left{
     text-align: center;
 }
 
 #mid {
     text-align: center;
+    overflow-y: scroll;
+    max-height: 1000px !important;
 }
 
 #right {

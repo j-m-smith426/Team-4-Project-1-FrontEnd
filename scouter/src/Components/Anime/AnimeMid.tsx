@@ -12,7 +12,7 @@ import axios from "../../axiosConfig";
 import { useEffect } from "react";
 import { useState } from "react";
 import { IPost } from "../../Entities/Post";
-import { CreatePostActions } from "../../Redux/Actions";
+import { CreatePostActions, SwitchPageAction } from "../../Redux/Actions";
 
 type AnimePageMidProps = RouteComponentProps<{animeID:string}>;
 
@@ -21,6 +21,7 @@ export interface IComment {
     content: string;
     image:string;
     REFERENCE: string;
+    timeStamp:Date;
     
 }
 
@@ -28,6 +29,18 @@ const AnimePageMid:React.FC<AnimePageMidProps> = ({match}) => {
     
     let animeID = match.params.animeID;
     let dispatch = useDispatch();
+    
+    useEffect(()=>{
+        updatePageName();
+    },[animeID])
+    const updatePageName = () =>{
+    dispatch({
+        type:SwitchPageAction.UPDATE,
+        payload:{
+            name:animeID
+        }
+    });
+}
        axios.get('/Post/Anime/'+animeID).then(response =>{
         console.log(response.data);
         let posts =response.data.users;
@@ -39,7 +52,7 @@ const AnimePageMid:React.FC<AnimePageMidProps> = ({match}) => {
             ParentID:i.REFERENCE.split('#')[3],
             AuthorID:i.REFERENCE.split('#')[0],
             PostID:i.REFERENCE.split('#')[2],
-            Timestamp:new Date(Date.parse(i.REFERENCE.split('#')[2].split('-')[1])),
+            Timestamp:new Date(Date.parse(i.timeStamp)),
             Content:{
                 text:i.content,
                 Img:i.image

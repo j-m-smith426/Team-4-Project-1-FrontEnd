@@ -1,7 +1,7 @@
-import { CreatePostActions, ICreatePostActions, ILoginActions, LoginActions } from "./Actions";
+import { CreatePostActions, ICreatePostActions, ILoginActions, ISwitchPageActions, LoginActions, SwitchPageAction } from "./Actions";
 import { IAppState, initialState } from "./State";
 
-export const Reducer = (state:IAppState = initialState, action: ILoginActions|ICreatePostActions):IAppState =>{
+export const Reducer = (state:IAppState = initialState, action: ILoginActions|ICreatePostActions|ISwitchPageActions):IAppState =>{
     const newState = {...state};
     switch(action.type){
         case LoginActions.LOGIN:
@@ -17,6 +17,9 @@ export const Reducer = (state:IAppState = initialState, action: ILoginActions|IC
         case CreatePostActions.Load:
             newState.IPageState.Posts = action.payload.Posts
             return newState
+        case SwitchPageAction.UPDATE:
+            newState.IPageState.PageID = action.payload.name;
+            return newState;
         default:
             return newState;
     }

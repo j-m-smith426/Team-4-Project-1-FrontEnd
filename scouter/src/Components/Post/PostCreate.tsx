@@ -42,15 +42,15 @@ const PostCreate:React.FC<SelectPageMidProps> = ({match}) =>{
             },
 
         };
-        let prefix = match.params.animeID ? 'A#':'U#';
-        let suffux = match.params.animeID ? match.params.animeID:match.params.userID;
+        
         console.log(match.params.animeID);
         axios.post('/Post/add', {
             comment:{
-                TYPEID: prefix+suffux,
+                TYPEID: newPost.ParentID,
                 content: newPost.Content.text,
                 image:newPost.Content.Img,
-                REFERENCE: `${newPost.AuthorID}#P#${newPost.PostID}#${newPost.ParentID}`
+                REFERENCE: `${newPost.AuthorID}#P#${newPost.PostID}#${newPost.ParentID}`,
+                timeStamp:newPost.Timestamp
             }
         })
             
