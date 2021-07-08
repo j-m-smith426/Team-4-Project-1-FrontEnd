@@ -11,10 +11,10 @@ import { Link } from 'react-router-dom';
 const mockStore = configureStore();
 const mockDispatch = jest.fn();
 
-/*describe('<NavBar />', () => {
+describe('<NavBar />', () => {
     it('routes to the Home page', () => {
         const wrapper = shallow(<NavBar/>);
-        expect(wrapper.find().text()).toContain("Home");
+        expect(wrapper.find("Navbar")).toHaveLength(2);
     })
 })
-*/
+

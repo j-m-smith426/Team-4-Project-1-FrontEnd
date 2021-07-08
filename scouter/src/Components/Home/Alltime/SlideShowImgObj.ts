@@ -11,7 +11,7 @@ export interface ssObj{
     
 }
 
-export  function getSSImg(key:string, caption:string):ssObj {
+export function getSSImg(key:string, caption:string):ssObj {
     let name = key.split('\/')[0].substr(2);
     let ssObj:ssObj = {
         src: name,

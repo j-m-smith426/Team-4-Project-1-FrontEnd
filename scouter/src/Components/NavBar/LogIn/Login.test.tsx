@@ -1,11 +1,12 @@
 import LogIn from './LogIn';
-import { User } from "../../../Entities/User";
 import { shallow, ShallowWrapper } from 'enzyme';
-import { Provider } from 'react-redux';
+import { Provider, useDispatch } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import { mount } from '../../../setupTests';
 import { combineReducers, createStore } from 'redux';
 import { Input } from 'reactstrap';
+import { ChangeEvent, useState } from 'react';
+import { User } from "../../../Entities/User";
 
 
 const mockStore = configureStore();
