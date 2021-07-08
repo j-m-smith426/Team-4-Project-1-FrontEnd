@@ -62,7 +62,7 @@ const SignUp:React.FC = (props) => {
         >
           Sign Up
         </DropdownToggle>
-        <DropdownMenu right>
+        <DropdownMenu id="signUpMenu" right>
           <Form inline className="px-4 py-3" onSubmit={submit}>
               
               <FormGroup>
@@ -79,7 +79,7 @@ const SignUp:React.FC = (props) => {
                   </FormGroup>   
                   {`8 character Username
             Password needs 1 of each uppercase, lowercase, number, symbol`}
-              <Input type="submit" value="Sign Up"/>
+              <Input id="signMeUp" type="submit" value="Sign Up"/>
               {message}
           </Form>
         </DropdownMenu>
