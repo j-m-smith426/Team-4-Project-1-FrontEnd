@@ -1,13 +1,118 @@
 body {
+  background-color: #333333;
+  color: blanchedalmond;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
+    'sans-serif';
+  /*-webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  */
 }
+.container{
+  background-color: #333333;
+  color: blanchedalmond;
 
+}
+.row{
+  background-color: #333333;
+  color: blanchedalmond;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+a{
+  text-decoration: none;
+}
+
+#toHome{
+  margin: 10px;
+  padding: 10px;
+  background-color: orangered;
+  color: blanchedalmond;
+  text-decoration: none;
+  
+}
+#toAnime{
+  margin: 10px;
+  padding: 10px;
+  background-color: orangered;
+  color: blanchedalmond;
+  text-decoration: none;
+  
+}
+
+#uname{
+  margin:10px;
+  background-color:blanchedalmond;
+  color:orangered;  
+}
+#pword{
+  margin:10px;
+  background-color: blanchedalmond;
+  color:orangered;  
+}
+#login{
+  margin:10px;
+  padding:5px;
+  background-color: orangered;
+  color: blanchedalmond;
+}
+#signup{
+  margin:10px;
+  padding:5px;
+  background-color: orangered;
+  color: blanchedalmond;
+  
+
+}
+#signUpMenu{
+  background-color: #333333;
+  color:blanchedalmond
+}
+#signMeUp{
+  background-color: orangered;
+  color: blanchedalmond;
+}
+#btnSearch{
+  background-color: orangered;
+  color:blanchedalmond;
+  
+}
+
+.mr-auto{
+  background-color: #333333;
+}
+nav{
+  background-color: #333333;
+}
+.ms-auto{
+  background-color: #333333;
+}
+.navbar-expand-md{
+  background-color: #333333;
+}
+ul{
+  background-color: #333333;
+}
+.comment{
+  color:orangered;
+}
+p.card-text{
+  color: orangered;
+}
+.userLinks{
+
+  list-style: none;
+  text-decoration: none;
+  color:blanchedalmond
+} 
+.userLinks:visted{
+  text-decoration: none;
+  color:orangered
+}
+#userPost{
+  background-color: orangered;
+  color: blanchedalmond;
+} 

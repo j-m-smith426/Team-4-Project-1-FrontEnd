@@ -116,7 +116,7 @@ const PostCreate:React.FC<SelectPageMidProps> = ({match}) =>{
         
         <Input type='file'  name='commentIMG' id='commentIMG' onChange={addIMG}></Input>
         
-        <Button size='md'  onClick={post}>Post</Button>
+        <Button id="btnPost" size='md'  onClick={post}>Post</Button>
         </Col>
             
         </Form>
