@@ -36,7 +36,7 @@ const PageGrid:React.FC = (props) => {
                         <Route path="/user/:userID">
                             <UserPageLeft />
                         </Route>
-                        <Route path="/anime">
+                        <Route path="/anime/:animeID">
                             <AnimePageLeft />
                         </Route>
                     </Switch>

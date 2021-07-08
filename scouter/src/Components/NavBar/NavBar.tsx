@@ -2,17 +2,57 @@ import React from "react";
 import { Button, Col, Form, Input, Nav, Navbar, NavbarBrand, NavItem, NavLink,  } from "reactstrap";
 import LogIn from "./LogIn/LogIn";
 import SignUp from "./SignUp/SignUp";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./NavBar.css"
 import { IAppState } from "../../Redux/State";
 import { RootState } from "../..";
 import logo  from './logo.png';
+import { Auth } from "aws-amplify";
+import { LoginActions } from "../../Redux/Actions";
+import { useEffect } from "react";
 
  const NavBar:React.FC<any> = (props) => {
   const currentUser = useSelector((state:IAppState) =>{
      return state.ILogin.username
-  })  
+  })
+  const dispatch = useDispatch();
+  useEffect(() =>{
+      checkUser();
+  }, [])
+  const checkUser = async() =>{
+  try{
+    let valid = await Auth.currentSession()
+     if(valid){
+     Auth.currentUserInfo().then(info =>{
+     console.log(info)
+      dispatch({
+        type:LoginActions.LOGIN,
+        payload:{
+           name:info.username
+        }
+    })
+})
+}
+     
+  } catch(err){
+    dispatch({
+        type:LoginActions.LOGIN,
+        payload:{
+           name:'Guest'
+        }
+    })
+  }
+}
+  const signOut =async() => {
+    await Auth.signOut();
+    dispatch({
+        type:LoginActions.LOGIN,
+        payload:{
+           name:'Guest'
+        }
+    })
+}
  
 return(
     
@@ -37,7 +77,7 @@ return(
         </NavItem>
         {/* To be extracted out */}
                     <Col className=" my-auto" id="signup">
-                        Sign Out
+                     <Link to='/' onClick={signOut}>   Sign Out</Link>
                     </Col>
         </Nav>
  }
@@ -72,3 +112,5 @@ return(
 }
 
 export default NavBar;
+
+
