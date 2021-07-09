@@ -15,8 +15,10 @@
 }
 
 #mid {
+    
     text-align: center;
-    overflow-y: scroll;
+    text-decoration: none;
+    align-items: center;
     
 }
 

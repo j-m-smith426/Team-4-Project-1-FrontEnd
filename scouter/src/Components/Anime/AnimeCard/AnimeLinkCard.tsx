@@ -30,7 +30,7 @@ let newAnime:IAnime = {
     genres: [],
     image:''
 }
-const AnimeCard:React.FC<{animeID: string}> = ({animeID}) => {
+const AnimeLinkCard:React.FC<{animeID: string}> = ({animeID}) => {
     const [anime,setAnime] = useState<any>(newAnime)
     useEffect(() =>{
         getAnime();
@@ -69,7 +69,7 @@ const AnimeCard:React.FC<{animeID: string}> = ({animeID}) => {
         <div className="animeCard">
             <div className="animeCardInner">
                 <img alt="Anime Picture" id='AnimeProfile'/>
-                <h3>{animeID}</h3>
+                <h3><Link className="userLinks"to={`/anime/${animeID}`} >{animeID}</Link></h3>
                 <fieldset className="animieInfoBox">
                     <legend>Synopsis:</legend>
                     <p className="animeInfo">
@@ -82,4 +82,4 @@ const AnimeCard:React.FC<{animeID: string}> = ({animeID}) => {
         </div>
     )
 }
-export default AnimeCard;
+export default AnimeLinkCard;
