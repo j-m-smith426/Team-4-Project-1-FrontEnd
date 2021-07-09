@@ -30,10 +30,7 @@ let newAnime:IAnime = {
     genres: [],
     image:''
 }
-
-type AnimePageMidProps = RouteComponentProps<{animeID:string}>;
-
-const AnimeCard:React.FC<AnimePageMidProps> = ({match}) => {
+const AnimeCard:React.FC<{animeID: string}> = ({animeID}) => {
     const [anime,setAnime] = useState<any>(newAnime)
     useEffect(() =>{
         getAnime();
@@ -41,7 +38,7 @@ const AnimeCard:React.FC<AnimePageMidProps> = ({match}) => {
 
      const getAnime = async () =>{
         let animeResponse:any = 'null'; 
-       axiosConfig.get('/Anime/'+match.params.animeID).then(response =>{
+       axiosConfig.get('/Anime/'+ animeID).then(response =>{
            animeResponse = response.data;
            console.log(animeResponse);
            setAnime(animeResponse);
@@ -72,21 +69,17 @@ const AnimeCard:React.FC<AnimePageMidProps> = ({match}) => {
         <div className="animeCard">
             <div className="animeCardInner">
                 <img alt="Anime Picture" id='AnimeProfile'/>
-                <h3>{match.params.animeID}</h3>
+                <h3>{animeID}</h3>
                 <fieldset className="animieInfoBox">
                     <legend>Synopsis:</legend>
                     <p className="animeInfo">
                         {anime.description}
                     </p>
                 </fieldset>
-                
-                
-                
-
               
             </div>
             
         </div>
     )
 }
-export default withRouter(AnimeCard)
+export default AnimeCard;
