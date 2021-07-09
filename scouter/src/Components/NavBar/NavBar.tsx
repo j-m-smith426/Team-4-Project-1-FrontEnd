@@ -36,8 +36,7 @@ import banner from "./banner.png";
         }
     })
 })
-}
-     
+}     
   } catch(err){
     dispatch({
         type:LoginActions.LOGIN,
@@ -60,18 +59,14 @@ import banner from "./banner.png";
 //handle search input
 const handler = (param:ChangeEvent<HTMLInputElement>) =>{
     setInput(param.target.value);
-}
- 
-return(
-    
+} 
+return(    
     <div >
         <Navbar className="topBar" light expand="md">
         <img id="logo" src={logo} alt="logo"  height="60" width="200"/>
         <img id="banner" src={banner} alt="banner" height="100" width="375"/>
         {currentUser === "Guest" ?
-        <Nav className="ms-auto" navbar>
-           
-           
+        <Nav className="ms-auto" navbar>           
         <NavItem>
             <LogIn User={{Name:'',Password:''}} />
         </NavItem>
@@ -89,10 +84,7 @@ return(
                      <Link id="signOut" to='/' onClick={signOut}>   Sign Out</Link>
                     </Col>
         </Nav>
- }
-                
- 
-            
+ }            
         </Navbar>
         <Navbar light expand="md">
             <Nav id="botBar" className="mr-auto" navbar>
@@ -111,17 +103,11 @@ return(
                 Search
                 </Link>
                 </Form>
-                </NavItem>
-                
+                </NavItem>                
             </Nav>
-        </Navbar>
-        
+        </Navbar>        
     </div>
-)
-
-
-}
-
+)}
 export default NavBar;
 
 

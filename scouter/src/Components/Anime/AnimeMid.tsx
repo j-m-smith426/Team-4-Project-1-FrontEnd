@@ -13,25 +13,19 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { IPost } from "../../Entities/Post";
 import { CreatePostActions, SwitchPageAction } from "../../Redux/Actions";
-
 import AFB from "./AnimeFavoriteButton";
 
 type AnimePageMidProps = RouteComponentProps<{animeID:string}>;
-
 export interface IComment {
     TYPEID: string;
     content: string;
     image:string;
     REFERENCE: string;
-    timeStamp:Date;
-    
+    timeStamp:Date;    
 }
-
-const AnimePageMid:React.FC<AnimePageMidProps> = ({match}) => {
-    
+const AnimePageMid:React.FC<AnimePageMidProps> = ({match}) => {    
     let animeID = match.params.animeID;
-    let dispatch = useDispatch();
-    
+    let dispatch = useDispatch();    
     useEffect(()=>{
         updatePageName();
     },[animeID])
@@ -41,13 +35,11 @@ const AnimePageMid:React.FC<AnimePageMidProps> = ({match}) => {
         payload:{
             name:animeID
         }
-    });
-}
+    });}
     //axios retrieves posts from anime pages
        axios.get('/Post/Anime/'+animeID).then(response =>{
         console.log(response.data);
-        let posts =response.data.users;
-    
+        let posts =response.data.users;    
     let PostArr:IPost[] =[]
     if(posts.length){
     for(let i of posts){
@@ -82,9 +74,4 @@ console.log(posts);
         </div>
     )
 }
-
 export default withRouter(AnimePageMid);
-
-/*
- <PostCreate/> line 25
- */

@@ -3,7 +3,6 @@ import { Row, Card, CardImg } from "reactstrap";
 import { Storage } from "aws-amplify";
 
 const HomeRight:React.FC = (props) => {
-
     //Reads in crunchyroll advertisement
     let img = 'Advertisement/crunchyroll.jpg';
     let body = new FileReader();
@@ -20,15 +19,11 @@ const HomeRight:React.FC = (props) => {
            body.readAsDataURL(obj.Body);
         });
     }
-    
-
     return(
-        <div>
-            
+        <div>            
                 <Card>
                     <CardImg id='Add1'/>
-                </Card>
-            
+                </Card>            
         </div>
     )
 } 

@@ -7,10 +7,7 @@ const getAnime = async (name:string) =>{
        anime = response.data;
        console.log(anime);
        return anime;
-   })
-   
+   })   
    return anime;
-
 }
-
 export default getAnime;

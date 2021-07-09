@@ -12,7 +12,6 @@ import UserPageMid from "../Users/UsersMid";
 import HomeMid from "../Home/HomeMid";
 import HomeLeft from "../Home/HomeLeft";
 import HomeRight from "../Home/HomeRight";
-
 import UserFavoritesCard from "../Users/UserFavorites/UserFavorites";
 import UserDisplay from "../Users/UserDisplay";
 import AnimeList from "../Anime/AnimeList";
@@ -20,7 +19,6 @@ import Search from "../NavBar/Search/Search";
 
 //grid is what an app.tsx does, maps out all of our components
 const PageGrid:React.FC = (props) => {
-
     return(
         <Router>
         <Container>
@@ -45,8 +43,7 @@ const PageGrid:React.FC = (props) => {
                 <Col className="col-6" id="mid">
                     {/* Mid pages */}
                     <Switch>
-                        <Route exact path="/">
-                            
+                        <Route exact path="/">                            
                             <HomeMid />
                         </Route>
                         <Route path="/user/:userID/favorites">
@@ -55,9 +52,7 @@ const PageGrid:React.FC = (props) => {
                         <Route path="/user/:userID">
                             <UserPageMid/>
                         </Route>
-                       
                         <Route path="/user">
-
                             <UserPageMid />
                         </Route>                      
                         <Route path="/search/:key">
@@ -72,16 +67,12 @@ const PageGrid:React.FC = (props) => {
                     </Switch>
                 </Col>
                 <Col  id="right">
-                    {/* Right Pages */}
-                    
-                            <HomeRight />
-                       
+                    {/* Right Pages */}                    
+                    <HomeRight />                       
                 </Col>
             </Row>
-        </Container>
-        
+        </Container>        
         </Router>
     );
-
 }
 export default PageGrid;

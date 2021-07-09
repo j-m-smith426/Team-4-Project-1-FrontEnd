@@ -120,58 +120,13 @@ p.card-text{
 
 } 
 
-#Post {
-  background-color: blanchedalmond;
-  color: orangered;
-  
-}
-#currentUser{
-  margin:10px;
-  padding:5px;
-  background-color: orangered;
-  color: blanchedalmond;
-  text-decoration: none;
-}
-#signOut{
-  margin:10px;
-  padding:5px;
-  background-color: orangered;
-  color: blanchedalmond;
-  text-decoration: none;
-}
-#txtSearch{
-  background-color: blanchedalmond;
-  color: orangered;
-}
-#navSearch{
-  margin:10px;
-  padding:5px;
-  background-color: orangered;
-  color: blanchedalmond;
-  text-decoration: none;
-}
-#animeList{
-  background-color: blanchedalmond;
-  color: orangered;
-}
-#animeList a{
- 
-  color: orangered;
-  text-decoration: none;
-}
-
-.commentCards{
-  background-color: blanchedalmond;
-  color: orangered;
-  text-decoration: none;
-}
-#aniSearch{
-  background-color: blanchedalmond;
-  color: orangered;
-}
-#aniSearch a{
- 
-  color: orangered;
-  text-decoration: none;
-}
-
+#Post {  background-color: blanchedalmond;  color: orangered; }
+#currentUser{  margin:10px;  padding:5px;  background-color: orangered;  color: blanchedalmond;  text-decoration: none;}
+#signOut{  margin:10px;  padding:5px;  background-color: orangered;  color: blanchedalmond;  text-decoration: none;}
+#txtSearch{  background-color: blanchedalmond;  color: orangered;}
+#navSearch{  margin:10px;  padding:5px;  background-color: orangered;  color: blanchedalmond;  text-decoration: none;}
+#animeList{  background-color: blanchedalmond;  color: orangered;}
+#animeList a{ color: orangered;  text-decoration: none;}
+.commentCards{  background-color: blanchedalmond;  color: orangered;  text-decoration: none;}
+#aniSearch{  background-color: blanchedalmond;  color: orangered;}
+#aniSearch a{  color: orangered;  text-decoration: none;}

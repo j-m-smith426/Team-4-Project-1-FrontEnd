@@ -1,41 +1,37 @@
+import { mount, shallow, ShallowWrapper } from 'enzyme';
 import { Provider } from 'react-redux';
-import AnimePageLeft from './AnimeLeft';
-import AnimePageMid from './AnimeMid';
+import HomeLeft from './HomeLeft'
+import HomeMid from './HomeMid';
+import HomeRight from './HomeRight';
+import {Auth} from 'aws-amplify';
 
-import AnimeList from './AnimeList';
+jest.mock('aws-amplify')
 
-import enzyme from '../../setupTests';
-import { ShallowWrapper } from 'enzyme';
-
-
-describe('Anime Left component', () => {
+describe('Home Left component', () => {
     let rendered: ShallowWrapper;
-    rendered = enzyme.shallow(<AnimePageLeft />)
+    rendered = shallow(<HomeLeft />)
     it('contains correct row', () => {
         expect(rendered.find('#id')).toBeDefined();
     })
 })
 
-describe('Anime Mid Component', () => {
+describe('Home Mid Component', () => {
     let rendered: ShallowWrapper;
-    rendered = enzyme.shallow(<AnimePageMid />)
+    rendered = shallow(<HomeMid />)
     
-
     it('contains correct row', () => {
         
         expect(rendered.find('#id')).toBeDefined();      
 
     })
 })
-describe('Anime ListComponent', () => {
+describe('Home Right Component', () => {
     let rendered: ShallowWrapper;
-    rendered = shallow(<AnimeList />)
+    rendered = shallow(<HomeRight />)
     
     it('contains correct row', () => {
       
         expect(rendered.find('#id')).toBeDefined();      
-
-    
 
     })
 })

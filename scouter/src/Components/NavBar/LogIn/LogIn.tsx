@@ -7,27 +7,20 @@ import {Auth} from 'aws-amplify'
 import './Login.css'
 import { LoginActions } from "../../../Redux/Actions";
 
-
 interface Iprops{
    User:User
-
 }
 
 const LogIn:React.FC<Iprops> = (props:Iprops) => {
-
     const [user, setUser]= useState(props.User)
     const [message, setMessage] = useState(String);
-    const dispatch = useDispatch();
-    
+    const dispatch = useDispatch();    
     const handler = (input:ChangeEvent<HTMLInputElement>) =>{
         setUser({...user,[input.target.name]: input.target.value })
     }
-
     const submit = async () => {
-       
         try {
-            let cogUser: CognitoUser= await Auth.signIn(user.Name, user.Password);
-           
+            let cogUser: CognitoUser= await Auth.signIn(user.Name, user.Password);           
            console.log(cogUser);
            if(cogUser){
            dispatch({
@@ -35,19 +28,13 @@ const LogIn:React.FC<Iprops> = (props:Iprops) => {
                payload:{
                   name: cogUser.getUsername() 
                }
-           })
-           
-           }
-            
+           })           
+           }            
         console.log(cogUser.getUsername());
        } catch (error) {
            console.log('error signing in', error);
-       }
-        
-        
+       }        
     }
-
-
     return(
             <Form inline>
                 <Row>
@@ -59,8 +46,7 @@ const LogIn:React.FC<Iprops> = (props:Iprops) => {
                     </Col>
                     <Col className="col-2 my-auto" >
                         <NavLink id="login" onClick={submit}>Login</NavLink>
-                    </Col>
-                    
+                    </Col>                    
                 </Row>
             </Form>
     )
