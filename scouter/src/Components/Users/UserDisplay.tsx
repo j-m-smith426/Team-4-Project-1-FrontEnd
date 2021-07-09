@@ -83,7 +83,7 @@ const UserDisplay:React.FC<UserPageProps> = ({match}) => {
         return (
 
             <ul>
-                <CardImg src={getImg()} id='profile' />
+                <CardImg src={getImg()} id='profile' height="120" width="200"/>
             <Col>
                 Username: {username}
             </Col>
@@ -93,7 +93,8 @@ const UserDisplay:React.FC<UserPageProps> = ({match}) => {
             <Col>
                 Bio: {bio}
             </Col>
-            <Button size='md' hidden={!(currentUser === userID)} onClick={edit}>Post</Button>
+            <Button id="userPost" size='md' hidden={!(currentUser === userID)} onClick={edit}>Post</Button>
+            
             </ul>
             
         )

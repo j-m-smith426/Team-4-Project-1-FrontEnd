@@ -6,11 +6,14 @@ import { BrowserRouter as Router,
 import { RouteComponentProps, withRouter } from "react-router";
 import { Container } from "reactstrap";
 import UserProfileCard from "./UserProfileCard/UserProfileCard";
-import { CreatePostActions } from "../../Redux/Actions";
+import { CreatePostActions, SwitchPageAction } from "../../Redux/Actions";
 import axios from "../../axiosConfig";
 import { useDispatch } from "react-redux";
 import { IPost } from "../../Entities/Post";
 import { LoadComments } from "../LoadCommands/LoadComments";
+import UserEdit from "./UserEdit";
+import UserDisplay from "./UserDisplay";
+import PostCreate from "../Post/PostCreate";
 
 type UserPageMidProps = RouteComponentProps<{userID:string}>;
 
@@ -39,6 +42,12 @@ const UserPageMid:React.FC<UserPageMidProps> = ({match}) => {
     }
 }
 console.log(posts);
+dispatch({
+    type:SwitchPageAction.UPDATE,
+    payload:{
+        name:userID
+    }
+});
     dispatch({
         type:CreatePostActions.Load,
         payload:{
@@ -60,6 +69,7 @@ console.log(posts);
             <UserFavoritesCard/>
         </Route>
         <Route path="/user/:userID">
+            <PostCreate/>
             <LoadComments />
         </Route>
         </Switch>

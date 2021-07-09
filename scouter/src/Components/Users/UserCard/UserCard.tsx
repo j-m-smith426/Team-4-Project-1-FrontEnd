@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import "./UserCard.css";
-import {UserStory} from "../../../Helpers/UserData";
 import {Link} from 'react-router-dom'
 import { RouteComponentProps, withRouter } from "react-router";
 import UserDisplay from '../UserDisplay';
@@ -12,16 +11,21 @@ const UserCard:React.FC<UserPageProps> = ({match}) => {
     return (
        
         <div className="userCard">
-            <div className="userCardInner">
-                
+            <div className="userCardInner">   
 
                     
                 <UserDisplay />
+               <div><p> </p>
+               <p></p>
+               
+               </div>
+
+
                 <li>
-                <Link to={`/user/${userID}/favorites`} >Favorites</Link>
+                <Link className="userLinks"to={`/user/${userID}/favorites`} >Favorites</Link>
                 </li>
                 <li>
-                <Link to={`/user/${userID}/watchList`}>Watch List</Link>
+                <Link className="userLinks"to={`/user/${userID}/watchList`}>Watch List</Link>
                 </li>
             </div>
             

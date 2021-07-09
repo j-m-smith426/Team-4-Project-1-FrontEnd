@@ -8,8 +8,6 @@ import './PageGrid.css'
 import UserPageLeft from "../Users/UsersLeft";
 import AnimePageLeft from "../Anime/AnimeLeft";
 import AnimePageMid from "../Anime/AnimeMid";
-import AnimePageRight from "../Anime/AnimeRight";
-import UserPageRight from "../Users/UsersRight";
 import UserPageMid from "../Users/UsersMid";
 import HomeMid from "../Home/HomeMid";
 import HomeLeft from "../Home/HomeLeft";
@@ -17,6 +15,8 @@ import HomeRight from "../Home/HomeRight";
 
 import UserFavoritesCard from "../Users/UserFavorites/UserFavorites";
 import UserDisplay from "../Users/UserDisplay";
+import AnimeList from "../Anime/AnimeList";
+import Search from "../NavBar/Search/Search";
 
 const PageGrid:React.FC = (props) => {
 
@@ -36,7 +36,7 @@ const PageGrid:React.FC = (props) => {
                         <Route path="/user/:userID">
                             <UserPageLeft />
                         </Route>
-                        <Route path="/anime">
+                        <Route path="/anime/:animeID">
                             <AnimePageLeft />
                         </Route>
                     </Switch>
@@ -48,19 +48,25 @@ const PageGrid:React.FC = (props) => {
                             
                             <HomeMid />
                         </Route>
+                        <Route path="/user/:userID/favorites">
+                            <UserFavoritesCard />
+                        </Route> 
                         <Route path="/user/:userID">
                             <UserPageMid/>
                         </Route>
-                        {/* <Route path="/user/:userID">
-                            <UserDisplay />
-                        </Route> */}
+                       
                         <Route path="/user">
 
                             <UserPageMid />
-                        </Route>                       
-                        
+                        </Route>                      
+                        <Route path="/search/:key">
+                            <Search/>
+                        </Route>
                         <Route path="/anime/:animeID">
                             <AnimePageMid />
+                        </Route>
+                        <Route path='/anime'>
+                            <AnimeList />
                         </Route>
                     </Switch>
                 </Col>
