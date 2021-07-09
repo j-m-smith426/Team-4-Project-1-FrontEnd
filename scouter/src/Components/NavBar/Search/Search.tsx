@@ -5,7 +5,9 @@ import { useSelector } from "react-redux";
 import { Link, RouteComponentProps, withRouter } from "react-router-dom";
 import { Form, Input, Button, Dropdown, DropdownToggle, DropdownItem, DropdownMenu, ListGroup, ListGroupItem } from "reactstrap";
 import axiosConfig from "../../../axiosConfig";
+
 type SearchProps = RouteComponentProps<{key:string}>;
+
 const Search:React.FC<SearchProps> = ({match}) =>{
     const [list,setList] = useState<Array<any>>([]);
    useEffect(()=>{
