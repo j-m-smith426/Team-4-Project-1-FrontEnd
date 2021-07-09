@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ListGroup, ListGroupItem } from "reactstrap";
 import axiosConfig from "../../axiosConfig";
-
+import "./Anime.css";
 const AnimeList:React.FC = (props) =>{
 const [list,setList] = useState<Array<any>>([]);
 useEffect(()=>{
@@ -21,7 +21,7 @@ console.log(nameList);
 return (
     <ListGroup>
             {nameList.map((anime) => (
-                <ListGroupItem key={anime}>
+                <ListGroupItem id="animeList" key={anime}>
                         <Link to={'/anime/'+anime}>{anime}</Link>
                 </ListGroupItem>
                 )

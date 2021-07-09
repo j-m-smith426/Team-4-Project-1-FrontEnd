@@ -58,7 +58,7 @@ export const DisplayPost:React.FC<Iprops> = (props:Iprops) => {
         <Col className='col-10'>
         <Row>
             
-            <Card>
+            <Card className="commentCards">
             <CardTitle tag="h6">
                 <Link to= {'/user/'+props.post.AuthorID}>{props.post.AuthorID}</Link></CardTitle>
             <CardImg src={getImg()} hidden ={!Boolean(props.post.Content.Img)} id = {props.post.PostID} />

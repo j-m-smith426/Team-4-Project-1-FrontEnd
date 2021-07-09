@@ -72,7 +72,7 @@ const AnimeCard:React.FC<AnimePageMidProps> = ({match}) => {
         <div className="animeCard">
             <div className="animeCardInner">
                 <img alt="Anime Picture" id='AnimeProfile'/>
-                <h3>Anime Title: {match.params.animeID}</h3>
+                <h3>{match.params.animeID}</h3>
                 <fieldset className="animieInfoBox">
                     <legend>Synopsis:</legend>
                     <p className="animeInfo">
@@ -80,9 +80,8 @@ const AnimeCard:React.FC<AnimePageMidProps> = ({match}) => {
                     </p>
                 </fieldset>
                 
-                <Link id="animeCommentLink" to= {'anime/'+match.params.animeID} >Comments</Link>
-                <p></p>
-                <Link id="animeRatingsLink" to= {'anime/'+match.params.animeID} >Ratings</Link>
+                
+                
 
               
             </div>

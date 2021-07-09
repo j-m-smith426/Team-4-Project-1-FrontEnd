@@ -73,8 +73,7 @@ console.log(posts);
         <div>
         <Row>
             <p>{animeID}</p>
-            <AnimeCommentCard/>
-          
+            <AnimeCommentCard/>      
         </Row>
         <LoadComments />
         </div>

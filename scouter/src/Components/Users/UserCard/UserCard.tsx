@@ -24,9 +24,7 @@ const UserCard:React.FC<UserPageProps> = ({match}) => {
                 <li>
                 <Link className="userLinks"to={`/user/${userID}/favorites`} >Favorites</Link>
                 </li>
-                <li>
-                <Link className="userLinks"to={`/user/${userID}/watchList`}>Watch List</Link>
-                </li>
+                
             </div>
             
         </div>
