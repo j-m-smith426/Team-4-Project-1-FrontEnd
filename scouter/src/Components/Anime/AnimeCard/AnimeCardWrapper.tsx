@@ -11,6 +11,7 @@ import {Storage} from 'aws-amplify'
 import { useEffect } from 'react';
 import axiosConfig from '../../../axiosConfig';
 import AnimeCard from './AnimeCard';
+import AFB from '../AnimeFavoriteButton';
 
 
 export interface IAnime {
@@ -36,7 +37,11 @@ type AnimePageMidProps = RouteComponentProps<{animeID:string}>;
 
 const AnimeCardWrapper:React.FC<AnimePageMidProps> = ({match}) => {
     return (
+        <div>
         <AnimeCard animeID={match.params.animeID}></AnimeCard>
+        <AFB favorite={match.params.animeID}></AFB>
+        </div>
+
     )
 }
 export default withRouter(AnimeCardWrapper);
