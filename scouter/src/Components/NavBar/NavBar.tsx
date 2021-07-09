@@ -11,6 +11,7 @@ import logo  from './logo.png';
 import { Auth } from "aws-amplify";
 import { LoginActions } from "../../Redux/Actions";
 import { useEffect } from "react";
+import banner from "./banner.png";
 
  const NavBar:React.FC<any> = (props) => {
   const currentUser = useSelector((state:IAppState) =>{
@@ -66,6 +67,7 @@ return(
     <div >
         <Navbar className="topBar" light expand="md">
         <img id="logo" src={logo} alt="logo"  height="60" width="200"/>
+        <img id="banner" src={banner} alt="banner" height="100" width="375"/>
         {currentUser === "Guest" ?
         <Nav className="ms-auto" navbar>
            
@@ -80,11 +82,11 @@ return(
         </Nav>:
         <Nav className="ms-auto" navbar>
         <NavItem>          
-           <Link to ={'/user/'+ currentUser}>{currentUser}</Link>          
+           <Link id="currentUser" to ={'/user/'+ currentUser}>{currentUser}</Link>          
         </NavItem>
         {/* To be extracted out */}
                     <Col className=" my-auto" id="signup">
-                     <Link to='/' onClick={signOut}>   Sign Out</Link>
+                     <Link id="signOut" to='/' onClick={signOut}>   Sign Out</Link>
                     </Col>
         </Nav>
  }
@@ -104,8 +106,8 @@ return(
             <Nav className="ms-auto" navbar>
             <NavItem>
                 <Form className="d-flex">
-                <Input type="text" name="Search" className="mr-sm-2" onChange={handler} />
-                <Link to={'/search/'+input}>
+                <Input id="txtSearch" type="text" name="Search" className="mr-sm-2" onChange={handler} />
+                <Link id="navSearch" to={'/search/'+input}>
                 Search
                 </Link>
                 </Form>

@@ -22,7 +22,7 @@ const Search:React.FC<SearchProps> = ({match}) =>{
 
     return(
   
-        <ListGroup>
+        <ListGroup id="aniSearch">
             {nameList.map((anime) => (
                 <ListGroupItem key={anime}>
                         <Link to={'/anime/'+anime}>{anime}</Link>
