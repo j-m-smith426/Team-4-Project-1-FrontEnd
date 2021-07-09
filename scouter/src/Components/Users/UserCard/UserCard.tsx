@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import "./UserCard.css";
-import {UserStory} from "../../../Helpers/UserData";
 import {Link} from 'react-router-dom'
 import { RouteComponentProps, withRouter } from "react-router";
 import UserDisplay from '../UserDisplay';
