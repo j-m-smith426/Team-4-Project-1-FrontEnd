@@ -18,6 +18,7 @@ import UserDisplay from "../Users/UserDisplay";
 import AnimeList from "../Anime/AnimeList";
 import Search from "../NavBar/Search/Search";
 
+//grid is what an app.tsx does, maps out all of our components
 const PageGrid:React.FC = (props) => {
 
     return(

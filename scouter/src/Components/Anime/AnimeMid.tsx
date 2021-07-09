@@ -14,6 +14,8 @@ import { useState } from "react";
 import { IPost } from "../../Entities/Post";
 import { CreatePostActions, SwitchPageAction } from "../../Redux/Actions";
 
+import AFB from "./AnimeFavoriteButton";
+
 type AnimePageMidProps = RouteComponentProps<{animeID:string}>;
 
 export interface IComment {
@@ -41,6 +43,7 @@ const AnimePageMid:React.FC<AnimePageMidProps> = ({match}) => {
         }
     });
 }
+    //axios retrieves posts from anime pages
        axios.get('/Post/Anime/'+animeID).then(response =>{
         console.log(response.data);
         let posts =response.data.users;
@@ -73,6 +76,7 @@ console.log(posts);
         <div>
         <Row>
             <p>{animeID}</p>
+            <AFB favorite={animeID}></AFB>
             <AnimeCommentCard/>      
         </Row>
         <LoadComments />

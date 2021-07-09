@@ -3,6 +3,7 @@ import React, { ChangeEvent, Props, useEffect, useState } from "react";
 import { Redirect, RouteComponentProps, withRouter } from 'react-router-dom';
 import { Button, CardImg, Col, Form, FormGroup, Input } from 'reactstrap';
 import { Storage } from "aws-amplify";
+import UserDisplay from './UserDisplay';
 
 const UserEdit:React.FC<{ user: string }> = ({user}) => {
     let userID = user;
@@ -100,7 +101,7 @@ const UserEdit:React.FC<{ user: string }> = ({user}) => {
         }
     }
     if(valid === "Profile"){
-        return(<Redirect to={"/user/" + username} ></Redirect>)
+        return(<UserDisplay></UserDisplay>)
     } else if(valid != "invalid"){
         return (
         <Form id='Post'>

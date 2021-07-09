@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import './HomeLeft.css'
 
 const HomeLeft:React.FC = (props) => {
+    //routes that link to specific anime pages
     return(
         <div id="divLeft">
         <h6>Top 5 Anime</h6>
