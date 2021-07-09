@@ -6,6 +6,8 @@ import configureStore from 'redux-mock-store';
 import { mount } from '../../../setupTests';
 import { combineReducers, createStore } from 'redux';
 import { Input } from 'reactstrap';
+import { SingleBedTwoTone } from '@material-ui/icons';
+import sinon from 'sinon';
 
 
 const mockStore = configureStore();
@@ -26,4 +28,15 @@ describe('<LogIn />', () => {
         expect(wrapper).toBeDefined();
         expect(wrapper.find("Input")).toHaveLength(2);
     });
+
+    it('handles change to input', () => {
+        wrapper = mount(
+            <Provider store = {mockStore()}>
+                <LogIn {...props} dispatch={mockDispatch}/>
+            </Provider>
+        );
+        let signin = wrapper.find("NavLink");
+        signin.simulate('click');
+        expect(signin).toBeUndefined(); 
+    })
 })

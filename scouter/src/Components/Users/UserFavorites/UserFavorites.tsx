@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import "./UserFavorites.css";
-
-import AnimeCard from '../../Anime/AnimeCard/AnimeCard';
 import axios from '../../../axiosConfig';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { types } from 'util';
+import AnimeLinkCard from '../../Anime/AnimeCard/AnimeLinkCard';
 type UserPageProps = RouteComponentProps<{userID:string}>;
 
 const UserFavoritesCard:React.FC<UserPageProps> = ({match}) => {
@@ -35,7 +34,7 @@ const UserFavoritesCard:React.FC<UserPageProps> = ({match}) => {
                         <div className="userFavCard">
                             <div className="userFavCardInner">
                                 <section className="userFavorites">
-                                   <AnimeCard animeID={fav}/>    
+                                   <AnimeLinkCard animeID={fav}/>    
                                             
                                 </section>
                             </div>

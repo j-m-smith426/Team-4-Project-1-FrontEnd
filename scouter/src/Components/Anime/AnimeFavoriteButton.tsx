@@ -15,6 +15,7 @@ import { IPost } from "../../Entities/Post";
 import { CreatePostActions, SwitchPageAction } from "../../Redux/Actions";
 import Amplify, { Auth } from "aws-amplify";
 import { ContactsOutlined } from "@material-ui/icons";
+import "./AnimeCard/AnimeCard.css";
 
 export interface AFBProps {
     favorite: string;

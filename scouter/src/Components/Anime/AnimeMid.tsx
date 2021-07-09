@@ -76,7 +76,6 @@ console.log(posts);
         <div>
         <Row>
             <p>{animeID}</p>
-            <AFB favorite={animeID}></AFB>
             <AnimeCommentCard/>      
         </Row>
         <LoadComments />
