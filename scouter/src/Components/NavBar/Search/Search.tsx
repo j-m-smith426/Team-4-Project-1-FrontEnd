@@ -5,7 +5,9 @@ import { useSelector } from "react-redux";
 import { Link, RouteComponentProps, withRouter } from "react-router-dom";
 import { Form, Input, Button, Dropdown, DropdownToggle, DropdownItem, DropdownMenu, ListGroup, ListGroupItem } from "reactstrap";
 import axiosConfig from "../../../axiosConfig";
+
 type SearchProps = RouteComponentProps<{key:string}>;
+
 const Search:React.FC<SearchProps> = ({match}) =>{
     const [list,setList] = useState<Array<any>>([]);
    useEffect(()=>{
@@ -18,10 +20,7 @@ const Search:React.FC<SearchProps> = ({match}) =>{
         })
     }
     list.forEach((anime) => nameList.push(anime.TYPEID.split('#')[1]))
-    
-
-    return(
-  
+    return(  
         <ListGroup id="aniSearch">
             {nameList.map((anime) => (
                 <ListGroupItem key={anime}>
@@ -31,6 +30,5 @@ const Search:React.FC<SearchProps> = ({match}) =>{
             )}
     </ListGroup>
     )
-
 }
 export default withRouter(Search);

@@ -8,8 +8,7 @@ import {IAppState} from '../../Redux/State'
 
 export const LoadComments:React.FC = (props) =>{
     const pagePosts = useSelector((state:IAppState)=>{
-       return state.IPageState.Posts;
-        
+       return state.IPageState.Posts;        
     });
     pagePosts.reverse();
     return(

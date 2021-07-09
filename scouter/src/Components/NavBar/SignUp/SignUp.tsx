@@ -15,7 +15,6 @@ const SignUp:React.FC = (props) => {
         signPass:'',
         signEmail:''
     })
-
     async function signUpSubmit() {
         try {
             const { user } = await Auth.signUp({
@@ -36,46 +35,35 @@ const SignUp:React.FC = (props) => {
                 });
                 setMessage(error.message);
             });
-
-
         } catch (error) {
             console.log('error signing up:', error);
             setMessage(error.message);
         }
-    }
-    
-    
-    
+    }    
     const handler = (input:ChangeEvent<HTMLInputElement>) =>{
         setSignUp({...signUp,[input.target.name]: input.target.value })
     }
-
     //Check submitted
     let submitted = false;
-
     //Submit information
     const submit = async (event: FormEvent) => {
         event.preventDefault();
             await signUpSubmit();
             if(submitted){
                 setMessage(`Submitted. Please check email for varification`);
-            }
-            
-    }
-  
+            }            
+    }  
     return (
       <Dropdown isOpen={dropdownOpen} toggle={toggle} >
         <DropdownToggle
           tag="span"
           data-toggle="dropdown"
-          aria-expanded={dropdownOpen}
-          
+          aria-expanded={dropdownOpen}          
         >
           Sign Up
         </DropdownToggle>
         <DropdownMenu id="signUpMenu" right>
-          <Form inline className="px-4 py-3" onSubmit={submit}>
-              
+          <Form inline className="px-4 py-3" onSubmit={submit}>              
               <FormGroup>
               <Label htmlFor="signName">Username*</Label>
               <Input type="text" placeholder="Username" name="signName" onChange={handler}/>
@@ -97,5 +85,4 @@ const SignUp:React.FC = (props) => {
       </Dropdown>
     );
 }
-
 export default SignUp;
