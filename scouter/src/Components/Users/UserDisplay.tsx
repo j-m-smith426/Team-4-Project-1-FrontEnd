@@ -34,8 +34,6 @@ const UserDisplay:React.FC<UserPageProps> = ({match}) => {
             if(response.data.users != null){
                 setUsername(response.data.users.TYPEID.substring(2));
                 setEmail(response.data.users.email);
-                
-
                 if(!response.data.users.profile){
                     setBio("This user has not filled out their profile.");
                 } else {
