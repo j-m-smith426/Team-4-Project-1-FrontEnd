@@ -1,11 +1,12 @@
-import { mount, shallow, ShallowWrapper } from 'enzyme';
 import { Provider } from 'react-redux';
 import AnimePageLeft from './AnimeLeft';
 import AnimePageMid from './AnimeMid';
+import enzyme from '../../setupTests';
+import { ShallowWrapper } from 'enzyme';
 
 describe('Anime Left component', () => {
     let rendered: ShallowWrapper;
-    rendered = shallow(<AnimePageLeft />)
+    rendered = enzyme.shallow(<AnimePageLeft />)
     it('contains correct row', () => {
         expect(rendered.find('#id')).toBeDefined();
     })
@@ -13,11 +14,12 @@ describe('Anime Left component', () => {
 
 describe('Anime Mid Component', () => {
     let rendered: ShallowWrapper;
-    rendered = shallow(<AnimePageMid />)
+    rendered = enzyme.shallow(<AnimePageMid />)
     
     it('calls axios to get posts', () => {
         const axios:Function = jest.createMockFromModule('axios');
-        expect(rendered).toBeCalledWith(axios);        
+        let p = rendered.find("p");
+        expect(p).toBeCalledWith(axios);        
 
     })
 })
