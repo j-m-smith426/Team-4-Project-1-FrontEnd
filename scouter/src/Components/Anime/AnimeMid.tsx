@@ -14,6 +14,8 @@ import { useState } from "react";
 import { IPost } from "../../Entities/Post";
 import { CreatePostActions, SwitchPageAction } from "../../Redux/Actions";
 
+import AFB from "./AnimeFavoriteButton";
+
 type AnimePageMidProps = RouteComponentProps<{animeID:string}>;
 
 export interface IComment {
@@ -74,6 +76,7 @@ console.log(posts);
         <div>
         <Row>
             <p>{animeID}</p>
+            <AFB favorite={animeID}></AFB>
             <AnimeCommentCard/>      
         </Row>
         <LoadComments />
