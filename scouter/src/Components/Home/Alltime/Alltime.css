@@ -1,0 +1,17 @@
+.carousel-caption {
+    position: absolute !important;
+    right: 0 !important;
+    bottom: 1rem !important;
+    left: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 20px !important;
+    color: orange !important;
+    text-align: center !important;
+    background-color:#333333!important;
+    opacity: 0.8 !important;
+    height: 30% !important;
+}
+
+.carousel-caption>h3, .carousel-caption>p{
+    font-size: 175%;
+}

@@ -3,11 +3,25 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Amplify from 'aws-amplify';
+import {currentConfig} from './amplifyConfig'
+import { createStore, Store } from 'redux';
+import {Reducer} from './Redux/Reducers'
+import {IAppState} from './Redux/State'
+import {IAppActions} from './Redux/Actions'
+import {Provider} from 'react-redux'
 
+
+Amplify.configure(currentConfig);
+const w:any = window;
+export const store: Store<IAppState,IAppActions> = createStore(Reducer, w.__REDUX_DEVTOOLS_EXTENSION__ && w.__REDUX_DEVTOOLS_EXTENSION__());
+export type RootState = ReturnType<typeof store.getState>;
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>
+  ,
   document.getElementById('root')
 );
 

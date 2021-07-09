@@ -1,0 +1,29 @@
+div button{
+    float: right;
+   text-align: right;
+}
+
+.card{
+    margin: 5px;
+    
+}
+.col textarea{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+#commentIMG{
+    background-color: #333333;
+    color: blanchedalmond;
+    float: left;
+    width:90%;
+}
+#btnPost{
+    background-color: orangered;
+    color:blanchedalmond;
+}
+#Post {
+    border: 0px;
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: #333333;
+}

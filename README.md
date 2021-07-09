@@ -1,5 +1,6 @@
 # Team-4-Project-1-FrontEnd
 Project 1 React Front End
+
 ## Coverage
 File                           | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -------------------------------|---------|----------|---------|---------|-------------------
