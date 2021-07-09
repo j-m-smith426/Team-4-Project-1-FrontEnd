@@ -1,12 +1,16 @@
-import { mount, shallow, ShallowWrapper } from 'enzyme';
 import { Provider } from 'react-redux';
 import AnimePageLeft from './AnimeLeft';
 import AnimePageMid from './AnimeMid';
+
 import AnimeList from './AnimeList';
+
+import enzyme from '../../setupTests';
+import { ShallowWrapper } from 'enzyme';
+
 
 describe('Anime Left component', () => {
     let rendered: ShallowWrapper;
-    rendered = shallow(<AnimePageLeft />)
+    rendered = enzyme.shallow(<AnimePageLeft />)
     it('contains correct row', () => {
         expect(rendered.find('#id')).toBeDefined();
     })
@@ -14,8 +18,9 @@ describe('Anime Left component', () => {
 
 describe('Anime Mid Component', () => {
     let rendered: ShallowWrapper;
-    rendered = shallow(<AnimePageMid />)
+    rendered = enzyme.shallow(<AnimePageMid />)
     
+
     it('contains correct row', () => {
         
         expect(rendered.find('#id')).toBeDefined();      
@@ -29,6 +34,8 @@ describe('Anime ListComponent', () => {
     it('contains correct row', () => {
       
         expect(rendered.find('#id')).toBeDefined();      
+
+    
 
     })
 })
