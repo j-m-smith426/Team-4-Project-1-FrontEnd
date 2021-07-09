@@ -27,6 +27,5 @@ return (
                 )
             )}
     </ListGroup>
-)
-}
+)}
 export default AnimeList;

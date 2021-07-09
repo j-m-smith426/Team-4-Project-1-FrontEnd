@@ -18,10 +18,7 @@ const Search:React.FC<SearchProps> = ({match}) =>{
         })
     }
     list.forEach((anime) => nameList.push(anime.TYPEID.split('#')[1]))
-    
-
-    return(
-  
+    return(  
         <ListGroup id="aniSearch">
             {nameList.map((anime) => (
                 <ListGroupItem key={anime}>
@@ -31,6 +28,5 @@ const Search:React.FC<SearchProps> = ({match}) =>{
             )}
     </ListGroup>
     )
-
 }
 export default withRouter(Search);
