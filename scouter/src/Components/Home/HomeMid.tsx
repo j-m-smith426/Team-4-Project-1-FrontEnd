@@ -4,6 +4,7 @@ import  PostCreate  from "../Post/PostCreate";
 import Alltime from "./Alltime/Alltime";
 
 const HomeMid:React.FC = (props) => {
+    //renders carousel
     return(
         <div>
         <Row>

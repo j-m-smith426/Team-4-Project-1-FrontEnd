@@ -43,6 +43,7 @@ const AnimePageMid:React.FC<AnimePageMidProps> = ({match}) => {
         }
     });
 }
+    //axios retrieves posts from anime pages
        axios.get('/Post/Anime/'+animeID).then(response =>{
         console.log(response.data);
         let posts =response.data.users;

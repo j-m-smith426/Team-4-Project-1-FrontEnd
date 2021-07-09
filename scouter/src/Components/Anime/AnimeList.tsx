@@ -3,11 +3,14 @@ import { Link } from "react-router-dom";
 import { ListGroup, ListGroupItem } from "reactstrap";
 import axiosConfig from "../../axiosConfig";
 import "./Anime.css";
+
+//returns a list of anime using axios to get all anime from the db
 const AnimeList:React.FC = (props) =>{
 const [list,setList] = useState<Array<any>>([]);
 useEffect(()=>{
     getList()
 }, []);
+//axios get all anime
 const getList = () =>{
     axiosConfig.get('/anime/all').then(p =>{setList(p.data.anime)
     console.log(p.data);
