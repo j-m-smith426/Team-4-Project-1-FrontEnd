@@ -73,8 +73,7 @@ dispatch({
             <LoadComments />
         </Route>
         </Switch>
-        {/* <UserProfileCard/>
-        <UserFavoritesCard/> */}
+        
         
     </div>
   

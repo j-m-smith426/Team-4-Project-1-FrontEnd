@@ -8,14 +8,14 @@ div button{
     
 }
 .col textarea{
-    margin-top: 15px;
+    margin-top: 5px;
     margin-bottom: 5px;
 }
 #commentIMG{
     background-color: #333333;
     color: blanchedalmond;
     float: left;
-    width: 90%;
+    width:90%;
 }
 #btnPost{
     background-color: orangered;
