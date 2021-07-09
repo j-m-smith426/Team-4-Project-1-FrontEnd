@@ -17,18 +17,15 @@ import Amplify, { Auth } from "aws-amplify";
 import { ContactsOutlined } from "@material-ui/icons";
 
 export interface AFBProps {
-    favorite: string; 
-}
-
+    favorite: string;
+ }
 const AFB:React.FC<AFBProps> = (props) => {
     const [currentUser, CurrentPage] = useSelector((state:IAppState) =>{
         return [state.ILogin.username, state.IPageState.PageID];
        })
     const [message, setMessage] = useState<string>("Add Favorite");
     const [disabled, setDisabled] = useState<boolean>(false);
-
     useEffect(() => {
-
         axios.get('/users/' + currentUser).then(response => {
             console.log("FAVORITES:" + response.data.users);
             if(response.data.users != null){
@@ -36,17 +33,13 @@ const AFB:React.FC<AFBProps> = (props) => {
                 if(Array.isArray(response.data.users.favorites) && response.data.users.favorites.includes(props.favorite)){
                     setMessage("Favorited!");
                     setDisabled(true);
-                } 
-            }
-
+                }}
         }).catch(error => {
           });
-
     }, [currentUser])
-
        if(currentUser != "Guest"){
         return(
-            <Button id="afb" size='md'  disabled = {disabled} onClick={(e) => addFavorite(props.favorite, currentUser)}> {message}</Button>
+            <Button data-testid="btnFav" id="afb" size='md'  disabled = {disabled} onClick={(e) => addFavorite(props.favorite, currentUser)}> {message}</Button>
         )
        } else {
            console.log("Not Logged In");
@@ -78,8 +71,7 @@ const AFB:React.FC<AFBProps> = (props) => {
                     } else {
                         setMessage("This anime is already one of your favorites!");
                         setDisabled(true);
-                    }
-    
+                    }    
                 }
             }
         }).catch(error => {
@@ -87,5 +79,4 @@ const AFB:React.FC<AFBProps> = (props) => {
           });
     }
 }
-
 export default AFB;

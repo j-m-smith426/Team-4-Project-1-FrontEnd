@@ -11,5 +11,4 @@ const AnimePageLeft:React.FC = (props) => {
         </div>
     )
 }
-
 export default AnimePageLeft;

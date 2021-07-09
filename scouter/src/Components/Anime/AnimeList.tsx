@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { ListGroup, ListGroupItem } from "reactstrap";
 import axiosConfig from "../../axiosConfig";
 import "./Anime.css";
-
 //returns a list of anime using axios to get all anime from the db
 const AnimeList:React.FC = (props) =>{
 const [list,setList] = useState<Array<any>>([]);
@@ -19,8 +18,6 @@ const getList = () =>{
 let nameList:string[] = [];
 list.map((anime) => nameList.push(anime.TYPEID.split('#')[1]))
 console.log(nameList);
-
-
 return (
     <ListGroup>
             {nameList.map((anime) => (
@@ -31,7 +28,5 @@ return (
             )}
     </ListGroup>
 )
-
-
 }
 export default AnimeList;
