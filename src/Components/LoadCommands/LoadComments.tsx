@@ -10,7 +10,7 @@ export const LoadComments:React.FC = (props) =>{
     const pagePosts = useSelector((state:IAppState)=>{
        return state.IPageState.Posts;        
     });
-    pagePosts.reverse();
+    
     return(
         <div id="com" className='comment'>
             {pagePosts.map((currentPost) =>(<DisplayPost post = {currentPost} key = {currentPost.PostID}/>))}
