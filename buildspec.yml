@@ -1,8 +1,13 @@
 version: 0.2
 phases:
   pre_build:
+  install:
+    runtime-versions:
+      nodejs: 14
     commands:
-      #installs dependencies into the node_modules/ directory
+      - npm i npm@latest -g
+      - npm cache clean --force
+      - rm -rf node_modules package-lock.json
       - npm install
   build:
     commands:
