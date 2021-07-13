@@ -6,7 +6,6 @@ phases:
     commands:
       - npm i npm@latest -g
       - npm cache clean --force
-      - rm node_modules
       - npm install
   build:
     commands:
