@@ -1,6 +1,5 @@
 # Scouter-FrontEnd
-This is the front-end repository, the backend is linked below. \
-[Scouter-Backend](https://github.com/j-m-smith426/Team-4-Project-1)
+This is the front-end repository. If you haven't already installed the [Backend](https://github.com/j-m-smith426/Team-4-Project-1), proceed to the backend and come back once the installation is complete.
 
 ## Project Description
 Scouter is a social web application designed to be a community for anime viewers. With Scouter, a user can log in by creating and verifying their account through email. Then, the user may proceed to exploring specific anime pages as well as other users' profile pages. Users can post comments on an anime page and see what other people of the Scouter community have discussed. A user with particular interest in an anime may click the Favorite button to add it to their favorites list located in their profile page. A user can also add information about themselves in their profile page and even post comments or pictures. 
@@ -84,7 +83,3 @@ Scouter Developers:
 * Nick Wang 
 * Matthew Hanrahan 
 * Imran Ilyas
-
-## License
-
-This project uses the following license: [<license_name>](<link>).
