@@ -30,22 +30,52 @@ To-do list:
 * More comprehensive frontend testing
 
 ## Getting Started
-To run this repository, you would need the AWS Access Key, Secret Key, and Region name, which we will not provide.
+Both the Frontend and Backend should be cloned and set up. If the Backend has not been, proceed to the [Backend repository](https://github.com/j-m-smith426/Team-4-Project-1) and get up to speed by finishing its respective 'Getting Started' section.
 
+To clone the repository, run the following command in your terminal:
+```powershell
+git clone https://github.com/j-m-smith426/Team-4-Project-1-FrontEnd.git
+```
+Alternatively, if you have Github Desktop, you can click on 'Code' and 'Open with Github Desktop'.
+Be sure [NodeJS](https://nodejs.org/en/download/) is installed as well as a text editor. We used [Visual Studio Code](https://code.visualstudio.com/download).
 
-(include git clone command)
-(include all environment setup steps)
+To check if NodeJS and Node Package Manager installed correctly, run the following command:
+```powershell
+node --version
+npm --version
+```
+Both should result in a version display.
+Once installed, open up the root of the repository and install Scouter's dependencies: 
+```powershell
+npm install
+```
+This will read from the package.json and install all necessary dependencies, including React and TypeScript. At this point, everything should be ready.
+**Both the Frontend and Backend repositories must be set up before proceeding!**
 
-> Be sure to include BOTH Windows and Unix command  
-> Be sure to mention if the commands only work on a specific platform (eg. AWS, GCP)
-
-- All the `code` required to get started
-- Images of what it should look like
+Now, you are ready to run the application. Open up the backend and run:
+```powershell
+npm run start:dev
+```
+In the frontend, run:
+```powershell
+npm start
+```
+Now, you have access to Scouter!
 
 ## Usage
-![Scouter Home Page](public/ScouterHomepage.png)
 
-> Here, you instruct other people on how to use your project after they’ve installed it. This would also be a good place to include screenshots of your project in action.
+![Scouter Home Page](public/ScouterHomepage.png)
+----
+The above photo is Scouter's Home Page for a user going by the handle 'newUser'.
+
+
+The search bar and all the links are functional. You may choose to navigate to a specific anime page by either clicking the links on the left side of the page, the **Anime** button next to **Home** or typing in an anime and searching for it through the Search Bar on the right side of the screen.
+
+
+Once on an anime page, you will see the anime cover photo, a synopsis, and all the posted comments from previous users. If a user particularly likes that anine, they may click on the **Favorite** button and that anime's information will be sent to your profile page. To navigate to a different user's profile page, click on the their handle located on the top left of their comment and you will be able to see their comments, bio, and favorites' list.
+
+
+To get to your profile page, click on your username, in this case **newUser** located next to the **Sign Out** button. Here you may post a photo or comment on your profile page located in the center of the screen or edit your bio on the left side of the screen. You may also choose to display all of your Favorited anime by clicking **Favorite** button located next to your bio.
 
 ## Contributors
 Scouter Developers:
