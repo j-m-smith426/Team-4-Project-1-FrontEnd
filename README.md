@@ -71,15 +71,17 @@ For a user who hasn't created an account, click on the **Sign Up** button on the
 
 The search bar and all the links are functional. You may choose to navigate to a specific anime page by either clicking the links on the left side of the page, the **Anime** button next to **Home**, or typing in an anime and searching for it through the Search Bar on the right side of the screen.
 
-
+![Scouter Anime Page](public/ScouterAnimepage.png)
+----
 Once on an anime page, you will see the anime cover photo, a synopsis, and all the posted comments from previous users. If a user particularly likes that anime, they may click on the **Favorite** button and that anime's information will be sent to your profile page. To navigate to a different user's profile page, click on their handle located on the top left of their comment and you will be able to see their comments, bio, and favorites' list.
 
-
+![Scouter Profile Page](public/ScouterProfilepage.png)
+----
 To get to your profile page, click on your username -- in this case **newUser** located next to the **Sign Out** button. Here you may post a photo or comment on your profile page located in the center of the screen or edit your bio on the left side of the screen. You may also choose to display all of your Favorited anime by clicking the **Favorite** button located next to your bio.
 
 ## Contributors
 Scouter Developers:
-* Joab Smith 
-* Nick Wang 
-* Matthew Hanrahan 
-* Imran Ilyas
+* [Joab Smith](https://github.com/j-m-smith426) 
+* [Nick Wang](https://github.com/nickwanguu) 
+* [Matthew Hanrahan](https://github.com/Thomas-Marik)
+* [Imran Ilyas](https://github.com/imranilyas)
